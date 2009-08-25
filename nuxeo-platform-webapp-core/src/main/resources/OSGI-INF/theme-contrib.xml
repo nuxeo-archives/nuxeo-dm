@@ -21,8 +21,13 @@
   <extension target="org.nuxeo.theme.services.ThemeService" point="themes">
 
     <theme>
+      <src>themes/theme-cloud.xml</src>
+    </theme>
+    
+    <theme>
       <src>themes/theme-galaxy.xml</src>
     </theme>
+    
 
   </extension>
 
@@ -54,6 +59,11 @@
     <view name="Nuxeo EP logo (Galaxy Theme)" template-engine="jsf-facelets">
       <format-type>widget</format-type>
       <template>incl/logo_EP_galaxy.xhtml</template>
+    </view>
+    
+    <view name="Nuxeo DM Cloud logo (Cloud Theme)" template-engine="jsf-facelets">
+      <format-type>widget</format-type>
+      <template>incl/logo_dmCloud_galaxy.xhtml</template>
     </view>
 
 
@@ -280,7 +290,7 @@
       <negotiation>
         <strategy>nuxeo5</strategy>
         <default-engine>default</default-engine>
-        <default-theme>galaxy/default</default-theme>
+        <default-theme>cloud/default</default-theme>
         <default-perspective>default</default-perspective>
       </negotiation>
 
@@ -295,10 +305,10 @@
       </style-caching>
 
       <view id="/create_relation_search_document_popup.xhtml">
-        <theme>galaxy/popup</theme>
+        <theme>cloud/popup</theme>
       </view>
       <view id="/user_dashboard.xhtml">
-        <theme>galaxy/user_dashboard</theme>
+        <theme>cloud/user_dashboard</theme>
       </view>
       <view id="/view_calendar.xhtml">
         <perspective>view_calendar</perspective>
@@ -307,13 +317,13 @@
         <perspective>print</perspective>
       </view>
       <view id="/editor_link_search_document.xhtml">
-        <theme>galaxy/popup</theme>
+        <theme>cloud/popup</theme>
       </view>
       <view id="/editor_image_upload.xhtml">
-        <theme>galaxy/popup</theme>
+        <theme>cloud/popup</theme>
       </view>
       <view id="/search/choose_searchscope_popup.xhtml">
-        <theme>galaxy/popup</theme>
+        <theme>cloud/popup</theme>
       </view>
     </application>
   </extension>
@@ -364,6 +374,13 @@
   <!-- Styles presets -->
 
   <extension target="org.nuxeo.theme.services.ThemeService" point="presets">
+  
+    <palette name="Cloud borders"
+      src="themes/palettes/cloud-borders.properties" category="border" />
+    <palette name="Cloud backgrounds"
+      src="themes/palettes/cloud-backgrounds.properties" category="background" />
+    <palette name="Cloud fonts" src="themes/palettes/cloud-fonts.properties"
+      category="font" />
 
     <palette name="Galaxy borders"
       src="themes/palettes/galaxy-borders.properties" category="border" />

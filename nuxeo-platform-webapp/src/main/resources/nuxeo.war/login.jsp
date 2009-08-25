@@ -20,19 +20,19 @@ String productVersion = Framework.getProperty("org.nuxeo.ecm.product.version");
 <!--
  body {
   font: normal 11px "Lucida Grande", sans-serif;
-  background: url(/nuxeo/img/theme_galaxy/chicago_black.jpg) 0 0 no-repeat #000;
+  background:#000 url(/nuxeo/img/theme_cloud/cloud_login.jpg) no-repeat center top;
   color: #343434;
   }
 
 .topBar {
-  background:#212325 url(/nuxeo/img/theme_galaxy/small_gray_bar.png) repeat-x scroll left top;
+  background:#212325 url(/nuxeo/img/theme_cloud/small_bluegray_bar.jpg) repeat-x scroll left top;
   width:100%;
   height:36px;
   border:0;
   }
 
 .topBar img {
-  margin-left:70px;
+  margin-left:30px;
   }
 
 table.loginForm {
@@ -101,7 +101,7 @@ nxthemes css is not used in login.jsp */
   cursor:pointer;
   color: #454545;
   font-size: 10px;
-  background: #CECFD1 url(/nuxeo/img/theme_galaxy/buttons.png) repeat-x scroll left top;
+  background: #CECFD1 url(/nuxeo/img/theme_cloud/buttons.png) repeat-x scroll left top;
   border:1px solid #BFC5CB;
   padding: 2px 5px 2px 5px;
   margin: 5px 10px 10px 0;
@@ -197,7 +197,7 @@ nxthemes css is not used in login.jsp */
     <tbody>
       <tr class="topBar">
         <td>
-          <img width="107" height="36" alt="Nuxeo EP" src="/nuxeo/img/theme_galaxy/nuxeo_5.2_logo.png"/>
+          <img width="230" height="36" alt="Nuxeo DM Cloud Edition" src="/nuxeo/img/theme_cloud/nuxeo_DMcloud_logo.jpg"/>
        </td>
        <td align="right" class="leftColumn">
        <div class="labelCorp">
