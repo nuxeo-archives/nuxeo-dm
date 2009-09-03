@@ -5,37 +5,37 @@
       <section>
         <cell>
           <!-- logo -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
         <cell>
           <!-- user services -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
         <cell>
           <!-- Include -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
       </section>
       <section>
         <cell>
           <!-- tree view -->
-          <fragment perspectives="default" type="generic fragment"/>
+          <fragment perspectives="default" type="generic fragment" />
           <!-- clip board -->
-          <fragment perspectives="default" type="generic fragment"/>
+          <fragment perspectives="default" type="generic fragment" />
           <!-- calendar -->
-          <fragment perspectives="view_calendar" type="generic fragment"/>
+          <fragment perspectives="view_calendar" type="generic fragment" />
         </cell>
         <cell>
           <!-- breadcrumbs -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
           <!-- main area -->
-          <fragment type="region fragment"/>
+          <fragment type="region fragment" />
         </cell>
       </section>
       <section>
         <cell>
           <!-- copyrights -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
       </section>
     </page>
@@ -43,11 +43,11 @@
       <section>
         <cell>
           <!-- main area -->
-          <fragment type="region fragment"/>
+          <fragment type="region fragment" />
         </cell>
         <cell>
           <!-- Include -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
       </section>
     </page>
@@ -55,50 +55,50 @@
       <section>
         <cell>
           <!-- logo -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
         <cell>
           <!-- user services -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
         <cell>
           <!-- includes -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
       </section>
       <section>
         <cell>
           <!-- breadcrumbs -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
       </section>
       <section>
         <cell>
           <!-- user tasks -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
           <!-- user processes -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
           <!-- user workspaces -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
           <!-- user sites -->
-          <fragment type="generic fragment"/>
-          <fragment type="web widget area"/>
+          <fragment type="generic fragment" />
+          <fragment type="web widget area" />
         </cell>
         <cell>
           <!-- user documents -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
           <!-- last documents -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
           <!-- last published document -->
-          <fragment type="generic fragment"/>
-          <fragment type="generic fragment"/>
-          <fragment type="web widget area"/>
+          <fragment type="generic fragment" />
+          <fragment type="generic fragment" />
+          <fragment type="web widget area" />
         </cell>
       </section>
       <section>
         <cell>
           <!-- copyrights -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
         </cell>
       </section>
     </page>
@@ -106,34 +106,34 @@
       <section>
         <cell>
           <!-- includes -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
           <!-- breadcrumbs -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" />
           <!-- main area -->
-          <fragment type="region fragment"/>
+          <fragment type="region fragment" />
         </cell>
       </section>
     </page>
   </layout>
   <properties element="page[1]/section[2]/cell[2]/fragment[2]">
     <name>body</name>
-    <defaultBody/>
-    <defaultSrc/>
+    <defaultBody />
+    <defaultSrc />
   </properties>
   <properties element="page[2]/section[1]/cell[1]/fragment[1]">
     <name>body</name>
-    <defaultBody/>
-    <defaultSrc/>
+    <defaultBody />
+    <defaultSrc />
   </properties>
   <properties element="page[3]/section[3]/cell[1]/fragment[5]">
-    <maxItems/>
+    <maxItems />
     <decoration>default</decoration>
     <name>Left Panel</name>
     <disallowDuplicates>false</disallowDuplicates>
     <provider>persistent per user</provider>
   </properties>
   <properties element="page[3]/section[3]/cell[2]/fragment[5]">
-    <maxItems/>
+    <maxItems />
     <decoration>default</decoration>
     <name>Right Panel</name>
     <disallowDuplicates>false</disallowDuplicates>
@@ -141,8 +141,8 @@
   </properties>
   <properties element="page[4]/section[1]/cell[1]/fragment[3]">
     <name>body</name>
-    <defaultBody/>
-    <defaultSrc/>
+    <defaultBody />
+    <defaultSrc />
   </properties>
   <formats>
     <layout element="page[1]">
@@ -255,6 +255,11 @@
     <widget element="page[1]/section[1]|page[1]/section[2]|page[1]/section[3]|page[2]/section[1]|page[3]/section[1]|page[3]/section[2]|page[3]/section[3]|page[3]/section[4]|page[4]/section[1]">
       <view>section frame</view>
     </widget>
+    <!--  Split pane -->
+    <widget element="page[1]/section[2]">
+      <view>split section frame</view>
+    </widget>
+    <!--  Split pane -->
     <widget element="page[1]/section[1]/cell[1]|page[1]/section[1]/cell[2]|page[1]/section[1]/cell[3]|page[1]/section[3]/cell[1]|page[2]/section[1]/cell[1]|page[3]/section[1]/cell[1]|page[3]/section[1]/cell[2]|page[3]/section[1]/cell[3]|page[3]/section[2]/cell[1]|page[3]/section[3]/cell[1]|page[3]/section[3]/cell[2]|page[3]/section[4]/cell[1]|page[4]/section[1]/cell[1]">
       <view>cell frame</view>
     </widget>
@@ -273,6 +278,16 @@
     <widget element="page[1]/section[2]/cell[2]">
       <view>cell frame</view>
     </widget>
+    
+    <!--  Split pane -->
+    <widget element="page[1]/section[2]/cell[1]">
+      <view>split cell frame</view>
+    </widget>
+    <widget element="page[1]/section[2]/cell[2]">
+      <view>split cell frame</view>
+    </widget>
+    <!-- Split pane -->
+    
     <widget element="page[1]/section[2]/cell[1]/fragment[1]">
       <view>nuxeo5 tree explorer</view>
     </widget>
