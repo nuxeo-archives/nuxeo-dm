@@ -2,7 +2,7 @@
 <component name="org.nuxeo.ecm.directories">
 
   <extension target="org.nuxeo.ecm.directory.sql.SQLDirectoryFactory"
-      point="directories">
+    point="directories">
     <directory name="country">
       <schema>xvocabulary</schema>
       <parentDirectory>continent</parentDirectory>

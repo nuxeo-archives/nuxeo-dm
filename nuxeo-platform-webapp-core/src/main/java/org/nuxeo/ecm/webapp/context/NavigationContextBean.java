@@ -177,8 +177,12 @@ public class NavigationContextBean implements NavigationContextLocal,
             }
             path = docs.get(0).getPath();
         }
-        String[] segs = { path.segment(0) };
-        return Path.createFromSegments(segs).toString();
+        if (path.segmentCount() > 0) {
+            String[] segs = { path.segment(0) };
+            return Path.createFromSegments(segs).toString();
+        } else {
+            return null;
+        }
     }
 
     public void setCurrentDocument(DocumentModel documentModel)
@@ -446,7 +450,18 @@ public class NavigationContextBean implements NavigationContextLocal,
         if (documentManager != null) {
             return documentManager;
         }
-        DocumentManagerBusinessDelegate documentManagerBD = (DocumentManagerBusinessDelegate) Contexts.lookupInStatefulContexts("documentManager");
+        // protect for unexpected wrong cast
+        Object supposedDocumentManager = Contexts.lookupInStatefulContexts("documentManager");
+        DocumentManagerBusinessDelegate documentManagerBD = null;
+        if (supposedDocumentManager != null) {
+            if (supposedDocumentManager instanceof DocumentManagerBusinessDelegate) {
+                documentManagerBD = (DocumentManagerBusinessDelegate) supposedDocumentManager;
+            } else {
+                log.error("Found the documentManager being "
+                        + supposedDocumentManager.getClass()
+                        + " instead of DocumentManagerBusinessDelegate. This is wrong.");
+            }
+        }
         if (documentManagerBD == null) {
             // this is the first time we select the location, create a
             // DocumentManagerBusinessDelegate instance
@@ -589,7 +604,11 @@ public class NavigationContextBean implements NavigationContextLocal,
         }
         // reinit lower tree
         docType = currentDocument.getType();
-        if (docType.equals("Domain")) {
+        if (docType.equals("Root")) {
+            setCurrentDomain(null);
+            setCurrentContentRoot(null);
+            setCurrentWorkspace(null);
+        } else if (docType.equals("Domain")) {
             setCurrentDomain(currentDocument);
             setCurrentContentRoot(null);
             setCurrentWorkspace(null);

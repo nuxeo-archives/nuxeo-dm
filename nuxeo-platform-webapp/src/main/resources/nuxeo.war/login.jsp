@@ -278,13 +278,20 @@ nxthemes css is not used in login.jsp */
                   <fmt:message bundle="${messages}" key="label.login.missingUsername" />
             </div>
           </c:if>
+          <c:if test="${param.securityError}">
+            <div class="errorMessage">
+                  <fmt:message bundle="${messages}" key="label.login.securityError" />
+            </div>
+          </c:if>
       </td>
     </tr>
     </table>
       </form>
       </td>
       <td class="news_container" align="right" valign="center">
-      <iframe class="block_container" style="display:none" onload="javascript:this.style.display='block';" src="http://www.nuxeo.com/nuxeoep_login/news/"></iframe>
+        <iframe class="block_container" style="display:none"
+          onload="javascript:this.style.display='block';"
+          src="http://www.nuxeo.com/var/storage/nuxeo_dm/news.html"></iframe>
       </td>
     </tr>
       <tr class="footer">
