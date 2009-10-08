@@ -20,7 +20,7 @@ String productVersion = Framework.getProperty("org.nuxeo.ecm.product.version");
 <!--
  body {
   font: normal 11px "Lucida Grande", sans-serif;
-  background: url(/nuxeo/img/theme_galaxy/chicago_black.jpg) 0 0 no-repeat #000;
+  background: url(/nuxeo/img/theme_galaxy/boston4.jpg) 0 0 no-repeat #000;
   color: #343434;
   }
 
@@ -289,9 +289,9 @@ nxthemes css is not used in login.jsp */
       </form>
       </td>
       <td class="news_container" align="right" valign="center">
-<!-- NXP-3991: disable in the mean time
-      <iframe class="block_container" style="display:none" onload="javascript:this.style.display='block';" src="http://www.nuxeo.com/nuxeoep_login/news/"></iframe>
--->
+        <iframe class="block_container" style="display:none"
+          onload="javascript:this.style.display='block';"
+          src="http://www.nuxeo.com/var/storage/nuxeo_dm/news.html"></iframe>
       </td>
     </tr>
       <tr class="footer">
