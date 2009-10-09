@@ -142,6 +142,11 @@
       <template>incl/user_calendar.xhtml</template>
       <resource>dragdrop.js</resource>
     </view>
+    
+    <view name="nuxeo5 dummy" template-engine="jsf-facelets">
+      <format-type>widget</format-type>
+      <template>incl/dummy.xhtml</template>
+    </view>
 
     <view name="nuxeo5 footer" template-engine="jsf-facelets">
       <format-type>widget</format-type>

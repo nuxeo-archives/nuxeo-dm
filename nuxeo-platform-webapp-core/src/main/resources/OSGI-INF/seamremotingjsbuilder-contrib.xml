@@ -12,6 +12,7 @@
                  <bean>documentActions</bean>
                  <bean>searchActions</bean>
                  <bean>popupHelper</bean>
+                 <bean>splitPane</bean>
           </beans>
       </remotableSeamBeans>
   </extension>

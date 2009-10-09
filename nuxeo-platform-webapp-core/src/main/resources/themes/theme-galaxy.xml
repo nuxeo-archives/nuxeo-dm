@@ -24,6 +24,8 @@
           <fragment perspectives="default,multiple_domains" type="generic fragment"/>
           <!-- calendar -->
           <fragment perspectives="view_calendar" type="generic fragment" />
+          <!-- Dummy -->
+          <fragment type="generic fragment" />
         </cell>
         <cell>
           <!-- breadcrumbs -->
@@ -298,6 +300,9 @@
     </widget>
     <widget element="page[1]/section[2]/cell[1]/fragment[3]">
       <view>nuxeo5 calendar actions</view>
+    </widget>
+    <widget element="page[1]/section[2]/cell[1]/fragment[4]">
+      <view>nuxeo5 dummy</view>
     </widget>
     <widget element="page[1]/section[2]/cell[2]/fragment[1]">
       <view>nuxeo5 breadcrumbs</view>
