@@ -41,13 +41,206 @@
         </h:outputLink> 
       </h:panelGroup>
     </nxu:methodResult>
+    
+    <c:if test="#{widget.mode == 'view'}">
+      <h:commandLink action="#{previewActions.doSetFieldXPath}">
+        <f:param name="fieldXPath"
+          value="#{widget.fieldDefinitions[0].propertyName}" />
+        <h:outputText value=" | #{messages['command.preview.file']}" />
+      </h:commandLink>
+    </c:if>
 
   </c:if>
 
   <c:if test="#{widget.mode == 'create' or widget.mode == 'edit'}">
+  
+      <style type="text/css">
+      #fakeInputsTable input {
+        background: url('img/input_boxes.gif') no-repeat 0 -60px;
+        border: none;
+        width: 241px;
+        height: 20px;
+        padding-left: 3px;
+        padding-top: 3px;
+      }
+      
+      #fakeInputsTable input:focus {
+        background-color: transparent;
+      }
+      
+      #fakeInputsTable div.fileinputs {
+        position: relative;
+        height: 30px;
+        width: 300px;
+      }
+      
+      #fakeInputsTable input.file {
+        width: 300px;
+        margin: 0;
+      }
+      
+      #fakeInputsTable input.file.hidden {
+        position: relative;
+        text-align: right;
+        -moz-opacity: 0;
+        filter: alpha(opacity :     0);
+        opacity: 0;
+        z-index: 2;
+      }
+      
+      #fakeInputsTable div.fakefile {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 300px;
+        padding: 0;
+        margin: 0;
+        z-index: 1;
+        line-height: 90%;
+      }
+      
+      #fakeInputsTable div.fakefile input {
+        margin-bottom: 5px;
+        margin-left: 0;
+      }
+      </style>
+    
+      
+      <script type="text/javascript">
+      <!--
+          
+          var W3CDOM = (document.createElement && document.getElementsByTagName);
 
-    <nxu:inputFile id="#{widget.id}_file" value="#{field_0}"
-      filename="#{field_1}" required="#{widget.required}" editFilename="false" />
+          function getUploadedText()
+          {
+        	  var currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:default_download:download');
+              if(currentChoice)
+              {
+                  return currentChoice.innerHTML;
+              }
+
+              return null;
+          }
+      
+          function getSaveImage()
+          {
+              var currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicekeep');
+              if(currentChoice)
+              {
+                  return 'icons/lto-reload.png';
+              }
+
+              return 'icons/lto-save.png';
+          }
+
+          function onDeleteFile()
+          {
+              try
+              {
+            	  var currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicekeep');
+                  if(currentChoice){
+                	  currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicedelete');
+                      if(currentChoice)
+                	   currentChoice.checked = 'checked';
+                  }
+                  else
+                  {
+                	  currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicenone').checked = 'checked';
+                  }
+    
+                  var delImg = document.getElementById('delete_image');
+                  delImg.style.display = "none";
+    
+                  var fakeEdit = document.getElementById('fakeEdit');
+                  fakeEdit.value = "";
+
+                  var addImg = document.getElementById('add_image');
+                  addImg.src = 'icons/lto-save.png';
+              }
+              catch(e)
+              {
+                  alert(e);
+              }
+          }
+          
+          function initFileUploads() {
+            if (!W3CDOM) 
+              {
+                alert("DOM not supported !");
+                return;
+              }
+              
+            var fakeFileUpload = document.createElement('div');
+            fakeFileUpload.className = 'fakefile';
+              var fakeEdit = document.createElement('input');
+              fakeEdit.type = "text";
+              fakeEdit.id = "fakeEdit";
+              //fakeEdit.disabled="disabled";
+              fakeEdit.value=getUploadedText();
+              
+            fakeFileUpload.appendChild(fakeEdit);
+            var image = document.createElement('img');
+            image.src = getSaveImage();
+            image.id = "add_image";
+            fakeFileUpload.appendChild(image); 
+            
+            var x = document.getElementsByTagName('input');
+            for (var i=0;i<x.length;i++) {
+              if (x[i].type != 'file') continue;
+              if (x[i].parentNode.className != 'fileinputs') continue;
+              x[i].className = 'file hidden';
+                  x[i].id = 'document_edit:nxl_file:nxw_file:nxw_file_file:upload';
+                  x[i].name = 'document_edit:nxl_file:nxw_file:nxw_file_file:upload';
+              var clone = fakeFileUpload.cloneNode(true);
+              x[i].parentNode.appendChild(clone);
+              x[i].relatedElement = clone.getElementsByTagName('input')[0];
+              x[i].onchange = function () {
+                this.relatedElement.value = this.value;
+                var upRadio = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choiceupload');
+                upRadio.checked='checked';
+                
+                var delImg = document.getElementById('delete_image');
+                delImg.style.display = "block";
+
+                var addImg = document.getElementById('add_image');
+                addImg.src = 'icons/lto-reload.png';
+              }
+            }
+          }
+
+          jQuery(document).ready(function() {
+        	  var up = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:upload');
+              up.parentNode.removeChild(up);
+        	  initFileUploads();
+
+        	  var choiceKeep = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicekeep');
+              if(choiceKeep)
+              {
+            	  var delImg = document.getElementById('delete_image');
+                  delImg.style.display = "block";
+              }
+          });
+        	          
+               
+          --> 
+      </script>
+      
+    <table id="fakeInputsTable">
+      <tr align="left">
+        <td id="cell1">
+          <div class="fileinputs">
+          <input type="file" class="file hidden" />
+          <div class="fakefile" />
+          </div>
+        </td>
+        <td id="cell2" valign="top"><img id="delete_image" src="icons/lto-delete.png" style="display: none;" onclick="onDeleteFile()"/></td>
+      </tr>
+    </table>
+
+    <div style="display: none">
+      <nxu:inputFile id="#{widget.id}_file" value="#{field_0}" 
+        filename="#{field_1}" required="#{widget.required}" editFilename="false" />
+    </div>
     <h:message styleClass="errorMessage" for="#{widget.id}_file"
       id="#{widget.id}_message" />
 
