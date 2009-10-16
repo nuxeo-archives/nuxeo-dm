@@ -110,10 +110,29 @@
       <!--
           
           var W3CDOM = (document.createElement && document.getElementsByTagName);
+          var idPrefix = 'document_edit:';
+
+          function myGetElementById(elemId)
+          {
+            if(elemId)
+            {
+                var elem = document.getElementById('document_edit:'+elemId);
+                if(elem)
+                {
+                    return elem;
+                }
+                else
+                {
+                    return document.getElementById('document_create:'+elemId);
+                }
+            }
+
+            return null;
+          }
 
           function getUploadedText()
           {
-        	  var currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:default_download:download');
+        	  var currentChoice = myGetElementById('nxl_file:nxw_file:nxw_file_file:default_download:download');
               if(currentChoice)
               {
                   return currentChoice.innerHTML;
@@ -124,7 +143,7 @@
       
           function getSaveImage()
           {
-              var currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicekeep');
+              var currentChoice = myGetElementById('nxl_file:nxw_file:nxw_file_file:choicekeep');
               if(currentChoice)
               {
                   return 'icons/lto-reload.png';
@@ -137,15 +156,17 @@
           {
               try
               {
-            	  var currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicekeep');
+            	  var currentChoice = myGetElementById('nxl_file:nxw_file:nxw_file_file:choicekeep');
                   if(currentChoice){
-                	  currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicedelete');
+                	  currentChoice = myGetElementById('nxl_file:nxw_file:nxw_file_file:choicedelete');
                       if(currentChoice)
                 	   currentChoice.checked = 'checked';
                   }
                   else
                   {
-                	  currentChoice = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicenone').checked = 'checked';
+                	  currentChoice = myGetElementById('nxl_file:nxw_file:nxw_file_file:choicenone');
+                	  if(currentChoice)
+                   	   currentChoice.checked = 'checked';
                   }
     
                   var delImg = document.getElementById('delete_image');
@@ -189,15 +210,19 @@
               if (x[i].type != 'file') continue;
               if (x[i].parentNode.className != 'fileinputs') continue;
               x[i].className = 'file hidden';
-                  x[i].id = 'document_edit:nxl_file:nxw_file:nxw_file_file:upload';
-                  x[i].name = 'document_edit:nxl_file:nxw_file:nxw_file_file:upload';
+                  x[i].id = idPrefix + 'nxl_file:nxw_file:nxw_file_file:upload';
+                  x[i].name = idPrefix + 'nxl_file:nxw_file:nxw_file_file:upload';
               var clone = fakeFileUpload.cloneNode(true);
               x[i].parentNode.appendChild(clone);
               x[i].relatedElement = clone.getElementsByTagName('input')[0];
               x[i].onchange = function () {
                 this.relatedElement.value = this.value;
-                var upRadio = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choiceupload');
-                upRadio.checked='checked';
+                var upRadio = myGetElementById('nxl_file:nxw_file:nxw_file_file:choiceupload');
+                alert(upRadio);
+                if(upRadio)
+                {
+                  upRadio.checked='checked';
+                }
                 
                 var delImg = document.getElementById('delete_image');
                 delImg.style.display = "block";
@@ -209,11 +234,24 @@
           }
 
           jQuery(document).ready(function() {
-        	  var up = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:upload');
-              up.parentNode.removeChild(up);
+        	  var up = document.getElementById(idPrefix + 'nxl_file:nxw_file:nxw_file_file:upload');
+              if(up)
+              {
+                up.parentNode.removeChild(up);
+              }
+              else
+              {
+            	  idPrefix = 'document_create:';
+            	  up = document.getElementById(idPrefix + 'nxl_file:nxw_file:nxw_file_file:upload');
+            	  if(up)
+                  {
+                    up.parentNode.removeChild(up);
+                  }   
+              }
+              
         	  initFileUploads();
 
-        	  var choiceKeep = document.getElementById('document_edit:nxl_file:nxw_file:nxw_file_file:choicekeep');
+        	  var choiceKeep = myGetElementById('nxl_file:nxw_file:nxw_file_file:choicekeep');
               if(choiceKeep)
               {
             	  var delImg = document.getElementById('delete_image');
