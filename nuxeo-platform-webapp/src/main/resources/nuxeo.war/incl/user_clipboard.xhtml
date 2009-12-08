@@ -37,26 +37,41 @@
 
 
       <div id="clipboardCopy">
+      
 
       <nxu:dataList var="copiedDocument"
         value="#{clipboardActions.currentSelectedList}">
-        <div id="docRef:#{copiedDocument.ref}" class="cell">
-          <span class="clipboardRemoveItem">
-           <h:commandLink
-              actionListener="#{clipboardActions.removeWorkListItem(copiedDocument.ref)}"
-              >
-              <nxu:graphicImage value="/icons/action_delete_mini.gif" />
-            </h:commandLink>
-          </span>
-          <nxu:graphicImage
-          value="#{nxd:iconPath(copiedDocument)}" styleClass="iconImage" />
-          <nxd:restDocumentLink document="#{copiedDocument}">
-          <h:outputText
-          value="#{nxd:titleOrId(copiedDocument)}" />
-          </nxd:restDocumentLink></div>
+        <div style="position: relative;">
+        <table>
+        <tr><td>
+          <div id="docRef:#{copiedDocument.ref}" class="cell">
+            <nxu:graphicImage
+            value="#{nxd:iconPath(copiedDocument)}" styleClass="iconImage" />
+            <nxd:restDocumentLink document="#{copiedDocument}">
+            <h:outputText
+            value="#{nxd:titleOrId(copiedDocument)}" />
+            </nxd:restDocumentLink>
+          </div>
+          </td>
+          <td>
+          <div class="clipboardRemoveItem">
+             <h:commandLink
+                actionListener="#{clipboardActions.removeWorkListItem(copiedDocument.ref)}">
+                <nxu:graphicImage value="/icons/action_delete_mini.gif" />
+              </h:commandLink>
+            </div>
+            </td>
+            </tr>
+          </table>
+        </div>
+        
         <script type="text/javascript">
-              <h:outputText value="new Draggable('docRef:#{copiedDocument.ref}', {revert:true});"/>
-        </script>
+        <!--
+        function wedge(event){ return false } new Draggable('docRef:#{copiedDocument.ref}', {revert:true, onStart: function(){ if (document.all){ Event.observe(document.body, "drag", wedge, false); Event.observe(document.body, "selectstart", wedge, false); } }, revert: function(){ if (document.all){ Event.stopObserving(document.body, "drag", wedge, false); Event.stopObserving(document.body, "selectstart", wedge, false); } } })
+        -->
+              
+              
+        </script>        
       </nxu:dataList>
 
       <div class="clipboardEmptyMessage">
