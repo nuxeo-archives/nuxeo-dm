@@ -582,7 +582,7 @@ public class SecurityActionsBean extends InputController implements
                         SecurityConstants.EVERYTHING, true);
                 // add administrators to avoid LockUp
                 securityData.addModifiablePrivilege(
-                        SecurityConstants.ADMINISTRATORS,
+                        userManager.getAdministratorsGroupId(),
                         SecurityConstants.EVERYTHING, true);
             }
         } else {

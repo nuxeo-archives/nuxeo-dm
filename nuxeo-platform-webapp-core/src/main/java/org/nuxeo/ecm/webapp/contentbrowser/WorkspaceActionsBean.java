@@ -53,10 +53,12 @@ import org.nuxeo.ecm.core.api.IdRef;
 import org.nuxeo.ecm.core.api.security.SecurityConstants;
 import org.nuxeo.ecm.platform.el.ContextStringWrapper;
 import org.nuxeo.ecm.platform.ui.web.util.BaseURL;
+import org.nuxeo.ecm.platform.usermanager.UserManager;
 import org.nuxeo.ecm.webapp.base.InputController;
 import org.nuxeo.ecm.webapp.documenttemplates.DocumentTemplatesActions;
 import org.nuxeo.ecm.webapp.security.PrincipalListManager;
 import org.nuxeo.ecm.webapp.security.SecurityActions;
+import org.nuxeo.runtime.api.Framework;
 
 /**
  * Action listener that deals with operations with the workspaces.
@@ -268,7 +270,7 @@ public class WorkspaceActionsBean extends InputController implements
             }
 
             // Force addition of administrators group
-            principalsName.add(SecurityConstants.ADMINISTRATORS);
+            principalsName.add(getAdministratorsGroupId());
 
             // Grant to principalList
             for (String principalName : principalsName) {
@@ -350,7 +352,7 @@ public class WorkspaceActionsBean extends InputController implements
             }
 
             // Add Admin group
-            securityActions.addPermission(SecurityConstants.ADMINISTRATORS,
+            securityActions.addPermission(getAdministratorsGroupId(),
                     SecurityConstants.EVERYTHING, true);
 
             // DENY at root
@@ -374,6 +376,17 @@ public class WorkspaceActionsBean extends InputController implements
                 + "wizards/createWorkspace/a4jUploadHack.faces?";
         url = conversationManager.encodeConversationId(url);
         return url;
+    }
+
+    public static String getAdministratorsGroupId() {
+        UserManager userManager;
+        try {
+            userManager = Framework.getService(UserManager.class);
+        } catch (Exception e) {
+            log.error(e);
+            return SecurityConstants.ADMINISTRATORS;
+        }
+        return userManager.getAdministratorsGroupId();
     }
 
 }
