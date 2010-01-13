@@ -84,7 +84,6 @@
       <!-- include JS used for D&D and tableSelection -->
       <resource>utils.js</resource>
       <!-- include JS for contextual menu -->
-      <resource>jquery.js</resource>
       <resource>contextmenu.js</resource>
     </view>
 
