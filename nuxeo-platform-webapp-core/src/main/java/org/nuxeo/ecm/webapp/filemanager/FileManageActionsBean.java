@@ -35,7 +35,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.jboss.seam.ScopeType;
@@ -519,23 +518,33 @@ public class FileManageActionsBean extends InputController implements
     public void validateMultiplesUpload() throws ClientException,
             FileNotFoundException {
         DocumentModel current = navigationContext.getCurrentDocument();
-        if (!current.hasSchema("files"))
+        if (!current.hasSchema("files")) {
             return;
-        Collection files = (Collection) current.getProperty("files", "files");
-        for (UploadItem file : getUploadedFiles()) {
-            String filename = FileUtils.getCleanFileName(file.getFileName());
-            Blob blob = FileUtils.createSerializableBlob(new FileInputStream(
-                    file.getFile()), filename, null);
-
-            HashMap<String, Object> fileMap = new HashMap<String, Object>(2);
-            fileMap.put("file", blob);
-            fileMap.put("filename", filename);
-            if (!files.contains(fileMap))
-                files.add(fileMap);
         }
-        current.setProperty("files", "files", files);
-        documentManager.saveDocument(current);
-        documentManager.save();
+        try {
+            Collection files = (Collection) current.getProperty("files",
+                    "files");
+            for (UploadItem uploadItem : getUploadedFiles()) {
+                String filename = FileUtils.getCleanFileName(uploadItem.getFileName());
+                Blob blob = FileUtils.createSerializableBlob(
+                        new FileInputStream(uploadItem.getFile()), filename,
+                        null);
+
+                HashMap<String, Object> fileMap = new HashMap<String, Object>(2);
+                fileMap.put("file", blob);
+                fileMap.put("filename", filename);
+                if (!files.contains(fileMap)) {
+                    files.add(fileMap);
+                }
+            }
+            current.setProperty("files", "files", files);
+            documentManager.saveDocument(current);
+            documentManager.save();
+        } finally {
+            for (UploadItem uploadItem : getUploadedFiles()) {
+                uploadItem.getFile().delete();
+            }
+        }
 
         Contexts.getConversationContext().remove("fileUploadHolder");
 
@@ -576,8 +585,9 @@ public class FileManageActionsBean extends InputController implements
                                 "fileImporter.error.unsupportedFile"));
                 return null;
             } finally {
-                if (stream != null)
-                    IOUtils.closeQuietly(stream);
+                org.nuxeo.common.utils.FileUtils.close(stream);
+                // the content of the temporary blob has been
+                fileUploadHolder.getTempFile().delete();
             }
         } else {
             facesMessages.add(FacesMessage.SEVERITY_ERROR, resourcesAccessor
@@ -637,22 +647,24 @@ public class FileManageActionsBean extends InputController implements
 
     @WebRemote
     public String removeSingleUploadedFile() throws ClientException {
-
         if (fileUploadHolder != null) {
+            if (fileUploadHolder.getTempFile() != null) {
+                fileUploadHolder.getTempFile().delete();
+            }
             fileUploadHolder.setFileName(null);
             fileUploadHolder.setTempFile(null);
         }
-
         return "";
     }
 
     @WebRemote
     public String removeAllUploadedFile() throws ClientException {
-
         if (fileUploadHolder != null) {
+            for (UploadItem item : fileUploadHolder.getUploadedFiles()) {
+                item.getFile().delete();
+            }
             fileUploadHolder.getUploadedFiles().clear();
         }
-
         return "";
     }
 
@@ -669,9 +681,10 @@ public class FileManageActionsBean extends InputController implements
             }
         }
 
-        if (null != fileToDelete)
+        if (null != fileToDelete) {
+            fileToDelete.getFile().delete();
             getUploadedFiles().remove(fileToDelete);
-
+        }
         return "";
     }
 
