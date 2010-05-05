@@ -254,6 +254,9 @@
     <resource name="DragAndDrop.js">
       <path>scripts/DragAndDrop.js</path>
     </resource>
+    
+    <bank name="nuxeo" connection-url="file:///opt/jboss/server/default/nuxeo_bank" />
+    
   </extension>
 
 
