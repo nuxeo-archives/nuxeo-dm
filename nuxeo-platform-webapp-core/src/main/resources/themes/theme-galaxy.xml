@@ -321,13 +321,10 @@
     <widget element="page[3]/section[3]/cell[1]/fragment[4]">
       <view>nuxeo5 user sites</view>
     </widget>
-    <style element="page[1]" inherit="galaxy1 (nuxeo galaxy)">
-    </style>
-    <style element="page[2]" inherit="galaxy1 (nuxeo galaxy)">
-    </style>
-    <style element="page[3]" inherit="galaxy1 (nuxeo galaxy)">
-    </style>
-    <style element="page[4]" inherit="galaxy1 (nuxeo galaxy)">
-    </style>
+    <style name="galaxy1 (nuxeo galaxy)" inherit="basic (nuxeo DM)"/>
+    <style element="page[1]" inherit="galaxy1 (nuxeo galaxy)"/>
+    <style element="page[2]" inherit="galaxy1 (nuxeo galaxy)"/>
+    <style element="page[3]" inherit="galaxy1 (nuxeo galaxy)"/>
+    <style element="page[4]" inherit="galaxy1 (nuxeo galaxy)"/>
   </formats>
 </theme>
