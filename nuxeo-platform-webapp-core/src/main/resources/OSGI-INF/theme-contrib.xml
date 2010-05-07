@@ -369,6 +369,9 @@
     <palette name="Galaxy colors" src="themes/palettes/galaxy-colors.properties"
       category="color" />
 
+    <palette name="nuxeo DM backgrounds"
+      src="themes/palettes/nuxeo-DM-backgrounds.properties" category="background" />
+
   </extension>
 
 
