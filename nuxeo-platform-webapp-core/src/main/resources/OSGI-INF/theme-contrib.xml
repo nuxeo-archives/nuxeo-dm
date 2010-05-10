@@ -355,24 +355,4 @@
 
   </extension>
 
-
-  <!-- Styles presets -->
-
-  <extension target="org.nuxeo.theme.services.ThemeService" point="presets">
-
-    <palette name="Galaxy borders"
-      src="themes/palettes/galaxy-borders.properties" category="border" />
-    <palette name="Galaxy backgrounds"
-      src="themes/palettes/galaxy-backgrounds.properties" category="background" />
-    <palette name="Galaxy fonts" src="themes/palettes/galaxy-fonts.properties"
-      category="font" />
-    <palette name="Galaxy colors" src="themes/palettes/galaxy-colors.properties"
-      category="color" />
-
-    <palette name="nuxeo DM backgrounds"
-      src="themes/palettes/nuxeo-DM-backgrounds.properties" category="background" />
-
-  </extension>
-
-
 </component>
