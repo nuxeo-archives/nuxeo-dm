@@ -6,6 +6,7 @@ Bundle-Localization: plugin
 Bundle-Vendor: Nuxeo
 Bundle-Category: web
 Nuxeo-Component: OSGI-INF/theme-contrib.xml,
+  OSGI-INF/theme-banks-contrib.xml,
   OSGI-INF/querymodel-contrib.xml,
   OSGI-INF/resultsprovider-contrib.xml,
   OSGI-INF/actions-contrib.xml,
