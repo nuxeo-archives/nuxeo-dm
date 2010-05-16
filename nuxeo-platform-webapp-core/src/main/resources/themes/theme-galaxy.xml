@@ -2,7 +2,7 @@
 <theme name="galaxy" template-engines="jsf-facelets">
   <layout>
     <page name="default">
-      <section>
+      <section name="header">
         <cell>
           <!-- logo -->
           <fragment type="generic fragment"/>
@@ -52,7 +52,7 @@
       </section>
     </page>
     <page name="user_dashboard">
-      <section>
+      <section name="header">
         <cell>
           <!-- logo -->
           <fragment type="generic fragment"/>
@@ -322,10 +322,10 @@
       <view>nuxeo5 user sites</view>
     </widget>
     <style name="basic (nuxeo DM)" />
-    <style name="galaxy1 (nuxeo galaxy)" inherit="basic (nuxeo DM)"/>
-    <style element="page[1]" inherit="galaxy1 (nuxeo galaxy)"/>
-    <style element="page[2]" inherit="galaxy1 (nuxeo galaxy)"/>
-    <style element="page[3]" inherit="galaxy1 (nuxeo galaxy)"/>
-    <style element="page[4]" inherit="galaxy1 (nuxeo galaxy)"/>
+    <style name="galaxy1 (Galaxy)" inherit="basic (nuxeo DM)"/>
+    <style element="page[1]" inherit="galaxy1 (Galaxy)"/>
+    <style element="page[2]" inherit="galaxy1 (Galaxy)"/>
+    <style element="page[3]" inherit="galaxy1 (Galaxy)"/>
+    <style element="page[4]" inherit="galaxy1 (Galaxy)"/>
   </formats>
 </theme>
