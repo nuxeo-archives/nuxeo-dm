@@ -27,6 +27,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.security.PermitAll;
 import javax.ejb.PostActivate;
@@ -42,8 +43,6 @@ import org.jboss.seam.annotations.Factory;
 import org.jboss.seam.annotations.In;
 import org.jboss.seam.annotations.Install;
 import org.jboss.seam.annotations.Name;
-import org.jboss.seam.annotations.Observer;
-import org.jboss.seam.annotations.Out;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.annotations.intercept.BypassInterceptors;
 import org.jboss.seam.annotations.web.RequestParameter;
@@ -60,16 +59,15 @@ import org.nuxeo.ecm.core.api.DocumentModelList;
 import org.nuxeo.ecm.core.api.DocumentRef;
 import org.nuxeo.ecm.core.api.IdRef;
 import org.nuxeo.ecm.core.api.PagedDocumentsProvider;
-import org.nuxeo.ecm.core.api.SortInfo;
 import org.nuxeo.ecm.core.api.VersionModel;
 import org.nuxeo.ecm.core.api.impl.DocumentModelListImpl;
 import org.nuxeo.ecm.core.api.security.SecurityConstants;
+import org.nuxeo.ecm.core.schema.SchemaManager;
 import org.nuxeo.ecm.core.search.api.client.querymodel.descriptor.QueryModelDescriptor;
 import org.nuxeo.ecm.platform.types.Type;
 import org.nuxeo.ecm.platform.types.adapter.TypeInfo;
 import org.nuxeo.ecm.platform.ui.web.api.NavigationContext;
 import org.nuxeo.ecm.platform.ui.web.api.UserAction;
-import org.nuxeo.ecm.platform.ui.web.pagination.ResultsProviderFarmUserException;
 import org.nuxeo.ecm.platform.ui.web.pathelements.ArchivedVersionsPathElement;
 import org.nuxeo.ecm.platform.ui.web.pathelements.DocumentPathElement;
 import org.nuxeo.ecm.platform.ui.web.pathelements.PathElement;
@@ -86,6 +84,7 @@ import org.nuxeo.ecm.webapp.helpers.EventManager;
 import org.nuxeo.ecm.webapp.helpers.EventNames;
 import org.nuxeo.ecm.webapp.pagination.ResultsProvidersCache;
 import org.nuxeo.ecm.webapp.querymodel.QueryModelActions;
+import org.nuxeo.runtime.api.Framework;
 
 /**
  * Implementation for the navigationContext component available on the session.
@@ -137,12 +136,10 @@ public class NavigationContextBean implements NavigationContextLocal,
 
     private List<PathElement> parents;
 
+    private SchemaManager schemaManager;
+
     @In(create = true, required = false)
     protected transient CoreSession documentManager;
-
-    @Out(required = false)
-    @Deprecated
-    protected PagedDocumentsProvider resultsProvider;
 
     @Create
     @PostActivate
@@ -250,16 +247,6 @@ public class NavigationContextBean implements NavigationContextLocal,
         return currentSuperSpace;
     }
 
-    @Observer(value = { EventNames.DOCUMENT_CHILDREN_CHANGED }, create = false, inject = false)
-    @BypassInterceptors
-    public void resetCurrentDocumentChildrenCache(DocumentModel targetDoc) {
-        if (targetDoc != null && currentDocument != null
-                && !currentDocument.getRef().equals(targetDoc.getRef())) {
-            return;
-        }
-        resultsProvider = null;
-    }
-
     @Deprecated
     public DocumentModelList getCurrentDocumentChildren()
             throws ClientException {
@@ -276,18 +263,6 @@ public class NavigationContextBean implements NavigationContextLocal,
 
         currentDocumentChildren = documentManager.query(query);
         return currentDocumentChildren;
-    }
-
-    public PagedDocumentsProvider getCurrentResultsProvider() {
-        return resultsProvider;
-    }
-
-    /**
-     * @see NavigationContext#setCurrentResultsProvider(PagedDocumentsProvider)
-     */
-    @Deprecated
-    public void setCurrentResultsProvider(PagedDocumentsProvider resultsProvider) {
-        this.resultsProvider = resultsProvider;
     }
 
     public void invalidateChildrenProvider() {
@@ -312,7 +287,7 @@ public class NavigationContextBean implements NavigationContextLocal,
 
         try {
             ResultsProvidersCache resultsProvidersCache = (ResultsProvidersCache) Component.getInstance("resultsProvidersCache");
-            resultsProvider = resultsProvidersCache.get(DocumentChildrenStdFarm.CHILDREN_BY_COREAPI);
+            PagedDocumentsProvider resultsProvider = resultsProvidersCache.get(DocumentChildrenStdFarm.CHILDREN_BY_COREAPI);
 
             currentDocumentChildren = resultsProvider.getCurrentPage();
         } catch (Throwable t) {
@@ -582,16 +557,16 @@ public class NavigationContextBean implements NavigationContextLocal,
                 DocumentModel docModel = currentDocumentParents.get(i);
                 docType = docModel.getType();
 
-                if (docType != null && docType.equals("Workspace")) {
+                if (docType != null && hasSuperType(docType, "Workspace")) {
                     setCurrentWorkspace(docModel);
                 }
 
-                if (null == docType || docType.equals("WorkspaceRoot")
-                        || docType.equals("SectionRoot")) {
+                if (null == docType || hasSuperType(docType, "WorkspaceRoot")
+                        || hasSuperType(docType, "SectionRoot")) {
                     setCurrentContentRoot(docModel);
                 }
 
-                if (docType != null && docType.equals("Domain")) {
+                if (docType != null && hasSuperType(docType, "Domain")) {
                     setCurrentDomain(docModel);
                 }
             }
@@ -602,16 +577,46 @@ public class NavigationContextBean implements NavigationContextLocal,
             setCurrentDomain(null);
             setCurrentContentRoot(null);
             setCurrentWorkspace(null);
-        } else if (docType.equals("Domain")) {
+        } else if (hasSuperType(docType, "Domain")) {
             setCurrentDomain(currentDocument);
             setCurrentContentRoot(null);
             setCurrentWorkspace(null);
-        } else if (docType.equals("WorkspaceRoot")
-                || docType.equals("SectionRoot")) {
+        } else if (hasSuperType(docType, "WorkspaceRoot")
+                || hasSuperType(docType, "SectionRoot")) {
             setCurrentContentRoot(currentDocument);
             setCurrentWorkspace(null);
-        } else if (docType.equals("Workspace")) {
+        } else if (hasSuperType(docType, "Workspace")) {
             setCurrentWorkspace(currentDocument);
+        }
+    }
+
+    private SchemaManager getSchemaManager() throws Exception {
+        if (schemaManager == null) {
+            schemaManager = Framework.getService(SchemaManager.class);
+            if (schemaManager == null) {
+                throw new ClientException(
+                        "Could not find SchemaManager service");
+            }
+        }
+        return schemaManager;
+    }
+
+    private Boolean hasSuperType(String targetDocType, String superType)
+            throws ClientException {
+        if (targetDocType == null) {
+            return false;
+        }
+        try {
+            Set<String> typeNames = getSchemaManager().getDocumentTypeNamesExtending(
+                    superType);
+            for (String type : typeNames) {
+                if (type.equals(targetDocType)) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (Exception e) {
+            throw new ClientException("Could not extending types", e);
         }
     }
 
@@ -884,7 +889,6 @@ public class NavigationContextBean implements NavigationContextLocal,
             }
         }
 
-        resultsProvider = null;
     }
 
     @SuppressWarnings("unused")
@@ -937,19 +941,6 @@ public class NavigationContextBean implements NavigationContextLocal,
                 log.error(e);
             }
         }
-    }
-
-    public PagedDocumentsProvider getResultsProvider(String name)
-            throws ClientException, ResultsProviderFarmUserException {
-        // TODO remove if useless...
-        return null;
-    }
-
-    public PagedDocumentsProvider getResultsProvider(String name,
-            SortInfo sortInfo) throws ClientException,
-            ResultsProviderFarmUserException {
-        // TODO remove if useless...
-        return null;
     }
 
 }

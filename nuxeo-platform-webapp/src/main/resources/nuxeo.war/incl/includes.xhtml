@@ -1,10 +1,10 @@
-<div xmlns:h="http://java.sun.com/jsf/html">
+<div xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:nxu="http://nuxeo.org/nxweb/util">
 
 <script type="text/javascript" src="#{baseURL}seam/resource/remoting/interface.js?#{SeamRemotingBeanNames}"></script>
-
 <script type="text/javascript">
-  <h:outputText
-    value="var currentConversationId='#{org.jboss.seam.core.manager.currentConversationId}';"/>
+<h:outputText
+   value="var currentConversationId='#{nxu:htmlEscape(org.jboss.seam.core.manager.currentConversationId)}';"/>
   <h:outputText
     value="var currentDocURL='#{currentServerLocation.name}/#{currentDocument.id}';"/>
     // set the conversation id before doing any call
@@ -19,7 +19,7 @@
  <span id="js-label.review.confirmDeleteTask"> <h:outputText value="#{messages['label.review.confirmDeleteTask']}" /></span>
 </div>
 
-<script type="text/javascript" src="#{baseURL}js/?scripts=confirmAlerts.js|DragAndDrop.js|tableSelections.js|customSeamRemotingWaiter.js|custom-javascript.js|default-contextmenu-actions.js|custom-contextmenu-actions.js"></script>
+<script type="text/javascript" src="#{baseURL}js/?scripts=confirmAlerts.js|DragAndDrop.js|tableSelections.js|customSeamRemotingWaiter.js|custom-javascript.js|default-contextmenu-actions.js|custom-contextmenu-actions.js|tooltip.js"></script>
 
 <script type="text/javascript">
 <h:outputText
