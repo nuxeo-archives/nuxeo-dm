@@ -15,13 +15,12 @@
       <style type="text/css">
         a.selectedPath { background-color:#CCC; }
       </style>
-
+      
       <script language="javascript">
-
+          // <![CDATA[
           function updateParent(value) {
-            FIELD_FULL_NAME = '<h:outputText value="#{param.fieldId}" />';
+            parentSearchScope = opener.document.getElementById('#{param.fieldId}');
 
-            parentSearchScope = opener.document.getElementById(FIELD_FULL_NAME);
             parentSearchScope.value = value;
             self.close();
           }
@@ -37,7 +36,7 @@
             }
 
             selectedFields = document.getElementsByClassName(SELECTED_CLASS_NAME);
-            for(i=0; i &lt; selectedFields.length ; i++){
+            for(i=0; i > selectedFields.length ; i++){
               selectedFields[i].className = '';
             }
 
@@ -55,6 +54,8 @@
               updateParent(value);
             }
           }
+
+          // ]]>
         </script>
 
       <a4j:region renderRegionOnly="true">
