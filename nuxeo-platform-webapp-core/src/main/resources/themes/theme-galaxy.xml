@@ -328,4 +328,8 @@
     <style element="page[3]" inherit="galaxy1 (Galaxy)"/>
     <style element="page[4]" inherit="galaxy1 (Galaxy)"/>
   </formats>
+  <presets>
+    <preset category="color" name="default.background.color" label="Background color" description="Color of the background on the main screen">#ccc</preset>
+    <preset category="font" name="default.font" label="Default font" description="Default font">12px Verdana</preset>
+  </presets>
 </theme>
