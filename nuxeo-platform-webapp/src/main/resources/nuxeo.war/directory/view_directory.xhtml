@@ -25,7 +25,7 @@
     <c:set var="isReadOnly" value="#{directoryUIActions.readOnly}" />
 
     <div>
-      <h:form id="directoryManagementGoBack">
+      <h:form id="directoryManagementGoBack" enctype="multipart/form-data">
         <p class="directoryBack">
           <h:commandLink
             value="#{messages['command.directoryBack']}"
@@ -42,7 +42,7 @@
 
     <c:if test="#{!isReadOnly}"> 
       <c:if test="#{directoryUIActions.selectedDirectoryEntry == null}">
-        <h:form id="showHideAddDirectoryEntry">
+        <h:form id="showHideAddDirectoryEntry" enctype="multipart/form-data">
   
           <h4>
             <h:commandLink
@@ -70,7 +70,7 @@
       <c:if test="#{directoryUIActions.selectedDirectoryEntry != null}">
         
         <div class="vocabularyEntryContent">
-          <h:form id="editDirectoryEntry">
+          <h:form id="editDirectoryEntry" enctype="multipart/form-data">
   
             <nxl:layout name="#{currentVoc.layout}" mode="edit"
               value="#{directoryUIActions.selectedDirectoryEntry}" />
@@ -94,7 +94,7 @@
       </c:if>
 
       <c:if test="#{directoryUIActions.selectedDirectoryEntry == null and not directoryUIActions.showAddForm}">
-        <h:form rendered="#{!empty directoryUIActions.currentDirectoryEntries}"
+        <h:form rendered="#{!empty directoryUIActions.currentDirectoryEntries}" enctype="multipart/form-data"
           id="viewDirectoryEntries">
   
           <table class="dataOutput">
