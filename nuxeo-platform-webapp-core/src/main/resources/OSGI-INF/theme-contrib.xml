@@ -30,6 +30,16 @@
 
   </extension>
 
+  <extension target="org.nuxeo.theme.services.ThemeService"
+    point="banks">
+    <import src="themes/nuxeo-dm.zip" dest="nuxeo" />
+    <import src="themes/nuxeo-galaxy.zip" dest="nuxeo" />
+  </extension>
+  
+  <extension target="org.nuxeo.theme.services.ThemeService" point="resources">
+    <bank name="nuxeo" url="http://localhost:8080/nuxeo/nxthemes/theme-banks/nuxeo" />
+  </extension>
+
   <!-- fragments -->
   <extension target="org.nuxeo.theme.services.ThemeService" point="fragments">
 
@@ -254,6 +264,7 @@
     <resource name="DragAndDrop.js">
       <path>scripts/DragAndDrop.js</path>
     </resource>
+    
   </extension>
 
 
@@ -349,22 +360,5 @@
     </negotiation>
 
   </extension>
-
-
-  <!-- Styles presets -->
-
-  <extension target="org.nuxeo.theme.services.ThemeService" point="presets">
-
-    <palette name="Galaxy borders"
-      src="themes/palettes/galaxy-borders.properties" category="border" />
-    <palette name="Galaxy backgrounds"
-      src="themes/palettes/galaxy-backgrounds.properties" category="background" />
-    <palette name="Galaxy fonts" src="themes/palettes/galaxy-fonts.properties"
-      category="font" />
-    <palette name="Galaxy colors" src="themes/palettes/galaxy-colors.properties"
-      category="color" />
-
-  </extension>
-
 
 </component>
