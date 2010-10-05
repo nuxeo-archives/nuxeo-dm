@@ -30,14 +30,14 @@
 
   </extension>
 
-  <extension target="org.nuxeo.theme.services.ThemeService"
-    point="banks">
-    <import src="themes/nuxeo-dm.zip" dest="nuxeo" />
-    <import src="themes/nuxeo-galaxy.zip" dest="nuxeo" />
+  <extension target="org.nuxeo.theme.services.ThemeService" point="banks">
+    <bank name="nuxeo" url="http://localhost:8080/nuxeo/site/theme-banks/nuxeo" />
   </extension>
-  
-  <extension target="org.nuxeo.theme.services.ThemeService" point="resources">
-    <bank name="nuxeo" url="http://localhost:8080/nuxeo/nxthemes/theme-banks/nuxeo" />
+
+  <extension target="org.nuxeo.theme.services.ThemeService"
+    point="resources">
+    <import src="themes/nuxeo-dm.zip" bank="nuxeo" />
+    <import src="themes/nuxeo-galaxy.zip" bank="nuxeo" />
   </extension>
 
   <!-- fragments -->
