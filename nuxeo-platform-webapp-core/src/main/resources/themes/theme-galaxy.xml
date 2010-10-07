@@ -331,5 +331,7 @@
   <presets>
     <preset category="color" name="default.background.color" label="Background color" description="Color of the background on the main screen">#ccc</preset>
     <preset category="font" name="default.font" label="Default font" description="Default font">12px Verdana</preset>
+    <preset category="image" name="default.logo" label="Site logo" description="Site logo"></preset>
+    <preset category="background" name="default.background.image" label="Background image"></preset>
   </presets>
 </theme>
