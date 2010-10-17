@@ -34,10 +34,9 @@
     <bank name="nuxeo" url="http://localhost:8080/nuxeo/site/theme-banks/nuxeo" />
   </extension>
 
-  <extension target="org.nuxeo.theme.services.ThemeService"
-    point="resources">
-    <import src="themes/nuxeo-dm.zip" bank="nuxeo" />
-    <import src="themes/nuxeo-galaxy.zip" bank="nuxeo" />
+  <extension target="org.nuxeo.theme.services.ThemeService" point="resources">
+    <import src="themes/nuxeo-dm.zip" bank="nuxeo" collection="nuxeo DM" />
+    <import src="themes/nuxeo-galaxy.zip" bank="nuxeo" collection="Galaxy" />
   </extension>
 
   <!-- fragments -->
@@ -264,7 +263,7 @@
     <resource name="DragAndDrop.js">
       <path>scripts/DragAndDrop.js</path>
     </resource>
-    
+
   </extension>
 
 
