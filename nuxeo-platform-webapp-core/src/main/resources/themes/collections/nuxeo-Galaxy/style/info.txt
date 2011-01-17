@@ -1,0 +1,5 @@
+
+nuxeo-galaxy.css:
+     description: Default theme
+     preview: nuxeo-galaxy.png
+     skin: true
