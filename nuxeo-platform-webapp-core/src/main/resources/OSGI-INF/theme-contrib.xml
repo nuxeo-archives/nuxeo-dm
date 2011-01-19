@@ -25,7 +25,7 @@
   <extension target="org.nuxeo.theme.services.ThemeService" point="themes">
 
     <theme>
-      <src>themes/theme-galaxy.xml</src>
+      <src>themes/dm-layout.xml</src>
     </theme>
 
   </extension>
