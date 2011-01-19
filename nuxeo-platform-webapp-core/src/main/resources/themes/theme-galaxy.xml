@@ -318,7 +318,9 @@
     <widget element="page[3]/section[3]/cell[1]/fragment[4]">
       <view>nuxeo5 user sites</view>
     </widget>
-    <!-- buttons -->
+    
+    <!--
+
     <style name="default buttons">
       <selector path="input.button">
         <font preset="default (Galaxy fonts)"/>
@@ -684,7 +686,8 @@
         <vertical-align>bottom</vertical-align>
         <margin>0 0 5px</margin>
       </selector>
-      <!-- rich faces tree -->
+
+
       <selector path=".dr-tree-h-ic-div">
         <margin-left>8px</margin-left>
         <padding-left>10px</padding-left>
@@ -695,7 +698,8 @@
       <selector path=".treeNodeSelectedClass">
         <border>none</border>
       </selector>
-      <!-- Rich Faces fileUpload -->
+
+
       <selector path=".rich-fileupload-list-decor">
         <margin>10px 0px</margin>
       </selector>
@@ -708,7 +712,8 @@
       <selector path=".rich-fileupload-button-content">
         <padding>2px 6px 2px 19px</padding>
       </selector>
-      <!-- End of Rich Faces fileUpload -->
+
+
       <selector path=".rightsAddSelect">
         <border preset="dataInput (Galaxy borders)" />
         <margin-top>0px</margin-top>
@@ -1213,7 +1218,8 @@
       <selector path="table.dataInput td.fieldColumn label">
         <vertical-align>top</vertical-align>
       </selector>
-      <!-- Style for Resume Tab -->
+
+
       <selector path="h3.summaryTitle">
         <border-bottom preset="summary (Galaxy borders)" />
         <color preset="summary.titles (Galaxy colors)" />
@@ -1347,11 +1353,13 @@
         <color preset="syndication.link (Galaxy colors)" />
         <text-decoration>none</text-decoration>
       </selector>
-      <!-- Advanced Search -->
+
+
       <selector path=".listShuttleTable .listShuttleSelectionActions a">
         <display>block</display>
       </selector>
-      <!-- Popup search document relation -->
+
+
       <selector path=".genericPopUp">
         <background-color>white</background-color>
         <position>absolute</position>
@@ -1379,7 +1387,8 @@
         <height>390px</height>
         <padding>10px</padding>
       </selector>
-      <!-- huge popUp -->
+
+
       <selector path=".bigPopUp">
         <width>80%</width>
         <height>70%</height>
@@ -1500,7 +1509,8 @@
       <selector path="td.dr-tree-h-text, td.dr-tree-h-text span, td.dr-tree-h-text a.treeLink">
         <white-space>normal</white-space>
       </selector>
-      <!-- Faceted Search -->
+
+
       <selector path=".facetedSearchActionBar">
         <border-bottom>1px solid #cacaca</border-bottom>
         <padding>2px</padding>
@@ -1675,22 +1685,19 @@
         <display>none</display>
       </selector>
     </style>
-    <!-- commmon to both fragments -->
+    
     <style element="page[4]/section[1]/cell[1]/fragment[2]|page[4]/section[1]/cell[1]/fragment[3]" inherit="common style 2"/>
-    <!-- General -->
     <style element="page[1]|page[2]|page[3]">
       <selector path="img" view="page frame">
         <border>0</border>
       </selector>
     </style>
-    <!-- Banner -->
     <style element="page[1]/section[1]|page[3]/section[1]">
       <selector path="" view="section frame">
         <border-bottom preset="topbar (Galaxy borders)"/>
         <background preset="topbar (Galaxy backgrounds)"/>
       </selector>
     </style>
-    <!-- Logo -->
     <style element="page[1]/section[1]/cell[1]/fragment[1]|page[3]/section[1]/cell[1]/fragment[1]">
       <selector path="form" view="Nuxeo DM logo (Galaxy Theme)">
         <margin>0</margin>
@@ -1700,9 +1707,7 @@
         <outline>none</outline>
       </selector>
     </style>
-    <!-- user services -->
     <style element="page[1]/section[1]/cell[2]/fragment[1]|page[3]/section[1]/cell[2]/fragment[1]" inherit="header style" />
-    <!-- Left side -->
     <style element="page[1]/section[2]">
       <selector path="" view="section frame">
         <border-top preset="whitethin (Galaxy borders)"/>
@@ -1715,7 +1720,6 @@
     </style>
     <style element="page[1]/section[2]/cell[1]/fragment[1]" inherit="tree and clipboard column" />
     <style element="page[1]/section[2]/cell[1]/fragment[2]" inherit="tree and clipboard column" />
-    <!-- Main cell -->
     <style element="page[1]/section[2]/cell[2]|page[2]/section[1]/cell[1]">
       <selector path="" view="cell frame">
         <background preset="maincell (Galaxy backgrounds)"/>
@@ -1734,7 +1738,6 @@
       </selector>
     </style>
     <style element="page[1]/section[2]/cell[2]/fragment[1]" inherit="breadcrumbs style"/>
-    <!-- Footer -->
     <style element="page[1]/section[3]|page[3]/section[4]">
       <selector path="" view="section frame">
         <border-top preset="topbar (Galaxy borders)"/>
@@ -1777,15 +1780,15 @@
         <margin>5px 0px 5px 10px</margin>
       </selector>
     </style>
-    <!-- main fragment for default page & popup -->
     <style element="page[1]/section[2]/cell[2]/fragment[2]|page[2]/section[1]/cell[1]/fragment[1]" inherit="common style 1">
       <selector path="" view="facelet region">
         <padding>7px</padding>
       </selector>
     </style>
-    <!-- main fragment for user dashboard -->
     <style element="page[3]/section[3]/cell[1]|page[3]/section[3]/cell[2]" inherit="common style 1">
-    </style>
+    </style>-->
+    
+    
   </formats>
   <presets>
     <preset category="image" name="site.logo" label="Site logo" description="Site logo image (max: 120x40 pixels)">url(nuxeo DM/nuxeo_5.2_logo.png)</preset>
