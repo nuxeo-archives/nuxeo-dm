@@ -353,33 +353,6 @@ div.syndicationLinks{font-size:9px; padding:2px 4px }
 .rich-fileupload-button-light, .rich-fileupload-button-press{ padding:1px }
 .rich-fileupload-button-content{ padding:2px 6px 2px 19px }
 
-/* Faceted Search */
-.facetedSearchActionBar{ border-bottom:1px solid #cacaca;  padding:2px }
-.facetedSearchActionBar a{ float:left;  padding-top:3px }
-.facetedSearchActionBar input.button{ float:right;  font-weight:bold;  margin:0 0 0 5px;  padding:0 5px 0 7px;  width:auto }
-#facetedSearchSelectorDiv, #savedFacetedSearchSelectorDiv{ border-bottom:1px solid #f1f1f1;  margin:0;  padding:0 0 5px }
-#facetedSearchSelectorDiv p, #savedFacetedSearchSelectorDiv p{ background-color:#ecf6ff;  border-bottom:1px solid #cacaca;  border-top:1px solid #fff;  color:#323232;  font:bold 11px "Lucida Grande",Helvetica,sans-serif;  padding:3px }
-.facetedSearchBlock .labelColumn{ font-weight:normal;  width:70px }
-.facetedSearchBlock .tinyLabel{ display:inline-block;  text-align:right;  width:24px }
-.facetedSearchBlock .dataInput{ width:100% }
-.facetedSearchBlock .dataInput td{ padding:3px 4px 5px 0 }
-.facetedSearchBlock input, .facetedSearchBlock select{ width:100% }
-.facetedSearchBlock .dataInputTextDate{ font-size:9px;  margin:0 5px 3px 3px;  width:45px }
-.facetedSearchBlock .widgetContent{ border-bottom:1px solid #dcdcdc }
-.facetedSearchBlock h5{ background-color:#f1f2f3;  border-bottom:1px solid #cacaca;  border-top:1px solid #fff;  color:#323232;  font:bold 11px "Lucida Grande",Helvetica,sans-serif;  padding:3px }
-.facetedSearchBlock .widgetContent .labelOpenPopUp{ border-bottom:1px solid #cacaca;  color:#323232;  display:block;  font:normal 10px "Lucida Grande",Helvetica,sans-serif;  margin:0 0 5px;  padding:0 0 1px }
-#saveFacetedSearchForm input{ margin-left:3px }
-.facetedSearchPopUp{ background-color:white;  border:1px solid #b5bcc6;  display:none;  left:25%;  position:absolute;  top:15%;  width:400px;  z-index:10000 }
-.facetedSearchPopUp .closePopUpHeader{ background-color:#f6f8ff;  border-bottom:1px dotted #dedede;  padding:3px;  text-align:right }
-.facetedSearchPopUp .closePopUpHeader .closePopUp{ cursor:pointer;  float:right }
-.facetedSearchPopUp .closePopUpHeader .popUpTitle{ float:left;  font-size:110% }
-.facetedSearchPopUp .popUpContent{ height:390px;  overflow:auto;  padding:10px }
-.facetedSearchBlock .dataInput .facetedSearchPopUp td, .facetedSearchBlock .thin td{ padding:1px }
-.facetedSearchBlock .widgetContent .labelOpenPopUp .labelTool{ cursor:pointer;  float:right }
-.facetedSearchBlock table.thin{ margin:0 0 7px 0 }
-
-.UserSuggestionInput table{ width:100% }
-
 /* Footer style */
 .footerArea{ text-align:right;  color:#e8e8e8;  padding:5px 15px 5px 5px;  font-size:9px }
 .footerArea form, .footerArea p{ margin:5px 0 0;  padding:0 }
