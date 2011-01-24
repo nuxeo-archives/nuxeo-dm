@@ -162,21 +162,6 @@ table.dataOutput thead th a, table.dataOutput thead th a:hover, table.dataOutput
 
 .buttonsGadgetNoForm .button{ margin-right:10px }
 
-.pictureBookItem{ background-color:#e8e8e8;  border:1px solid #e8e8e8;  float:left;  height:160px;  margin:10px 20px 10px 0px;  text-align:center;  width:140px }
-
-.itemSelected{ background-color:#e8e8e8;  border:#e8e8e8 }
-
-.pictureBookItem .cell{ height:110px;  padding-top:15px;  text-align:center }
-.pictureBookItem .cell a{ display:block;  height:100px;  padding:20px;  width:100px }
-.pictureBookItemTitle{ background-color:#e8e8e8;  font-size:9px;  padding:5px 0 }
-
-.slideshowContent{ padding:10px 0px 5px 0px }
-.slideshowContent h3{ padding:8px 0px 5px 70px }
-.slideShowControl{ margin:0px 0px 10px }
-.slideShowControl input{ margin:0px 3px;  padding:0px }
-.slideShowControl .indexPicture{ margin:0px 3px 4px 0px }
-.slideShowControl span{ color:#c3c3c3;  font-size:13px;  font-weight:bold;  padding-right:10px }
-
 .foldableBox{ border:1px solid #e8e8e8;  margin-bottom:20px }
 .foldableBox h3{ background-color:#c3c3c3;  border-bottom:1px solid #e8e8e8;  color:white;  font-size:11px;  padding:3px 3px 3px 18px }
 .foldableBox h3 a, .foldableBox h3 a:link, .foldableBox h3 a:visited, .foldableBox h3 a:hover, .foldableBox h3 a:visited:hover{ color:white;  display:block }

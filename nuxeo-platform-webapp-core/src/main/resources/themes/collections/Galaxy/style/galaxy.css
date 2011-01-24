@@ -62,11 +62,6 @@ table.dataOutput thead th a, table.dataOutput thead th a:hover, table.dataOutput
 
 .dataInput .fieldColumn table.mceEditor .mceToolbarBottom{ background:"blue.sky (Galaxy background)" }
 
-.pictureBookItem{ background:"blue.sky (Galaxy background)";  border:"blue.sky.mini (Galaxy border)" }
-.itemSelected{ background:"selected.orange (Galaxy background)";  border:"orange (Galaxy border)" }
-.pictureBookItemTitle{ background:"big.blue (Galaxy background)" }
-.slideShowControl span{ color:"gray (Galaxy color)" }
-
 .foldableBox{ border:"tabisnotselected (Galaxy border)" }
 .foldableBox h3{ background:"tabiselected (Galaxy background)";  border-bottom:"tabiselected (Galaxy border)" }
 .foldableBox h3.folded{ background:"folded (Galaxy background)" }
