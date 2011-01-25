@@ -8,8 +8,7 @@
 
   <property name="outdir" value="${maven.project.build.directory}" />
 
-  <target name="build"
-          description="Build theme collections">
+  <target name="build" description="Build theme collections">
     <!-- nuxeo DM -->
     <antcall target="build-theme-collection">
       <param name="collection" value="nuxeo-DM" />
@@ -18,9 +17,9 @@
     <antcall target="build-theme-collection">
       <param name="collection" value="Galaxy" />
     </antcall>
-    <!-- nuxeo Galaxy -->
+    <!-- Grey -->
 		<antcall target="build-theme-collection">
-			<param name="collection" value="nuxeo-Galaxy" />
+			<param name="collection" value="Grey" />
 		</antcall>
 
     <copy todir="${outdir}/classes/" overwrite="true">
