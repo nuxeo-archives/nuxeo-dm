@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<theme name="galaxy" template-engines="jsf-facelets">
+<theme name="galaxy" resource-bank="nuxeo" template-engines="jsf-facelets">
   <layout>
     <page name="default">
       <section>
@@ -130,7 +130,18 @@
     <defaultBody/>
     <defaultSrc/>
   </properties>
+  <presets>
+    <preset category="image"
+      description="Site logo image (max: 120x40 pixels)"
+      label="Site logo" name="site.logo">url(nuxeo DM/nuxeo_5.2_logo.png)</preset>
+  </presets>
   <formats>
+    <style name="basic (nuxeo DM)" remote="true"/>
+    <style inherit="basic (nuxeo DM)" name="nuxeo-galaxy (nuxeo Galaxy)" remote="true"/>
+    <style element="page[1]" inherit="nuxeo-galaxy (nuxeo Galaxy)"/>
+    <style element="page[2]" inherit="nuxeo-galaxy (nuxeo Galaxy)"/>
+    <style element="page[3]" inherit="nuxeo-galaxy (nuxeo Galaxy)"/>
+    <style element="page[4]" inherit="nuxeo-galaxy (nuxeo Galaxy)"/>
     <layout element="page[1]">
       <margin>0</margin>
       <padding>0</padding>
@@ -235,22 +246,22 @@
       <icon>${org.nuxeo.ecm.contextPath}/icons/favicon.png</icon>
       <charset>utf-8</charset>
     </widget>
-    <widget element="page[1]|page[2]|page[3]|page[4]">
+    <widget element="page[1]">
       <view>page frame</view>
     </widget>
-    <widget element="page[1]/section[1]|page[1]/section[2]|page[1]/section[3]|page[2]/section[1]|page[3]/section[1]|page[3]/section[2]|page[3]/section[3]|page[3]/section[4]|page[4]/section[1]">
+    <widget element="page[1]/section[1]">
       <view>section frame</view>
     </widget>
-    <widget element="page[1]/section[1]/cell[1]|page[1]/section[1]/cell[2]|page[1]/section[1]/cell[3]|page[1]/section[3]/cell[1]|page[2]/section[1]/cell[1]|page[3]/section[1]/cell[1]|page[3]/section[1]/cell[2]|page[3]/section[1]/cell[3]|page[3]/section[2]/cell[1]|page[3]/section[3]/cell[1]|page[3]/section[3]/cell[2]|page[3]/section[4]/cell[1]|page[4]/section[1]/cell[1]">
+    <widget element="page[1]/section[1]/cell[1]">
       <view>cell frame</view>
     </widget>
-    <widget element="page[1]/section[1]/cell[1]/fragment[1]|page[3]/section[1]/cell[1]/fragment[1]">
+    <widget element="page[1]/section[1]/cell[1]/fragment[1]">
       <view>Nuxeo DM logo (Galaxy Theme)</view>
     </widget>
-    <widget element="page[1]/section[1]/cell[2]/fragment[1]|page[3]/section[1]/cell[2]/fragment[1]">
+    <widget element="page[1]/section[1]/cell[2]/fragment[1]">
       <view>User services (Galaxy theme)</view>
     </widget>
-    <widget element="page[1]/section[1]/cell[3]/fragment[1]|page[3]/section[1]/cell[3]/fragment[1]">
+    <widget element="page[1]/section[1]/cell[3]/fragment[1]">
       <view>nuxeo5 includes</view>
     </widget>
     <widget element="page[1]/section[2]/cell[1]">
@@ -268,10 +279,10 @@
     <widget element="page[1]/section[2]/cell[2]/fragment[1]">
       <view>nuxeo5 breadcrumbs</view>
     </widget>
-    <widget element="page[1]/section[2]/cell[2]/fragment[2]|page[2]/section[1]/cell[1]/fragment[1]">
+    <widget element="page[1]/section[2]/cell[2]/fragment[2]">
       <view>facelet region</view>
     </widget>
-    <widget element="page[1]/section[3]/cell[1]/fragment[1]|page[3]/section[4]/cell[1]/fragment[1]">
+    <widget element="page[1]/section[3]/cell[1]/fragment[1]">
       <view>Nuxeo DM footer (Galaxy Theme)</view>
     </widget>
     <widget element="page[2]/section[1]/cell[2]/fragment[1]">
@@ -318,8 +329,89 @@
     <widget element="page[3]/section[3]/cell[1]/fragment[4]">
       <view>nuxeo5 user sites</view>
     </widget>
+    <widget element="page[1]/section[1]/cell[2]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[1]/section[1]/cell[3]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[1]/section[2]">
+      <view>section frame</view>
+    </widget>
+    <widget element="page[1]/section[3]">
+      <view>section frame</view>
+    </widget>
+    <widget element="page[1]/section[3]/cell[1]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[2]">
+      <view>page frame</view>
+    </widget>
+    <widget element="page[2]/section[1]">
+      <view>section frame</view>
+    </widget>
+    <widget element="page[2]/section[1]/cell[1]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[2]/section[1]/cell[1]/fragment[1]">
+      <view>facelet region</view>
+    </widget>
+    <widget element="page[3]">
+      <view>page frame</view>
+    </widget>
+    <widget element="page[3]/section[1]">
+      <view>section frame</view>
+    </widget>
+    <widget element="page[3]/section[1]/cell[1]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[3]/section[1]/cell[1]/fragment[1]">
+      <view>Nuxeo DM logo (Galaxy Theme)</view>
+    </widget>
+    <widget element="page[3]/section[1]/cell[2]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[3]/section[1]/cell[2]/fragment[1]">
+      <view>User services (Galaxy theme)</view>
+    </widget>
+    <widget element="page[3]/section[1]/cell[3]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[3]/section[1]/cell[3]/fragment[1]">
+      <view>nuxeo5 includes</view>
+    </widget>
+    <widget element="page[3]/section[2]">
+      <view>section frame</view>
+    </widget>
+    <widget element="page[3]/section[2]/cell[1]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[3]/section[3]">
+      <view>section frame</view>
+    </widget>
+    <widget element="page[3]/section[3]/cell[1]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[3]/section[3]/cell[2]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[3]/section[4]">
+      <view>section frame</view>
+    </widget>
+    <widget element="page[3]/section[4]/cell[1]">
+      <view>cell frame</view>
+    </widget>
+    <widget element="page[3]/section[4]/cell[1]/fragment[1]">
+      <view>Nuxeo DM footer (Galaxy Theme)</view>
+    </widget>
+    <widget element="page[4]">
+      <view>page frame</view>
+    </widget>
+    <widget element="page[4]/section[1]">
+      <view>section frame</view>
+    </widget>
+    <widget element="page[4]/section[1]/cell[1]">
+      <view>cell frame</view>
+    </widget>
   </formats>
-  <presets>
-    <preset category="image" name="site.logo" label="Site logo" description="Site logo image (max: 120x40 pixels)">url(nuxeo DM/nuxeo_5.2_logo.png)</preset>
-  </presets>
 </theme>
