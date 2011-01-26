@@ -1,6 +1,6 @@
 /*-- global styles for Wireframe --*/
 .siteLogo{ }
-.siteLogo a{ background:"site.logo"center center no-repeat;  top:0;  left:0;  border:none;  position:absolute;  height:38px;  width:120px;  border:1px }
+.siteLogo a{ background:"site.logo" center center no-repeat;  top:0;  left:0;  border:none;  position:absolute;  height:38px;  width:120px;  border:1px }
 .siteLogo img{ position:absolute;  z-index:-1 }
 
 body{ font:normal 11px Arial,sans-serif;  margin:0;  padding:0 }
