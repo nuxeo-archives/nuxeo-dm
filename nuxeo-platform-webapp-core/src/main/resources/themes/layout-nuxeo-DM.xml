@@ -136,6 +136,12 @@
       label="Site logo" name="site.logo">url(nuxeo DM/nuxeo_5.2_logo.png)</preset>
   </presets>
   <formats>
+    <style inherit="basic (nuxeo DM)" name="galaxy (Galaxy)" remote="true"/>
+    <style name="galaxy (Galaxy)" remote="true"/>
+    <style element="page[1]" inherit="galaxy (Galaxy)"/>
+    <style element="page[2]" inherit="galaxy (Galaxy)"/>
+    <style element="page[3]" inherit="galaxy (Galaxy)"/>
+    <style element="page[4]" inherit="galaxy (Galaxy)"/>
     <layout element="page[1]">
       <margin>0</margin>
       <padding>0</padding>
