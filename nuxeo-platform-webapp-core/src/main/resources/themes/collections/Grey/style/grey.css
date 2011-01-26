@@ -22,12 +22,12 @@ div.breadcrumbArea{ background-color:#eeeff0 }
 
 /*-- Default tabs --*/
 .tabsBar{ border-bottom:"tabsbar (Galaxy border)" }
-.tabsBar a, .tabsBar a:hover, .tabsBar a:visited{ background:"white (Galaxy background)";  border:"tabisnotselected (Galaxy border)";  color:"blue.link (Galaxy color)"; border-radius: 0 7px 0 0; -moz-border-radius: 0 7px 0 0; -webkit-border-radius: 0 7px 0 0 }
+.tabsBar a, .tabsBar a:hover, .tabsBar a:visited{ background:"white (Galaxy background)";  border:"tabisnotselected (Galaxy border)";  color:"blue.link (Galaxy color)"; border-radius: 0 7px 0 0 }
 .tabsBar li.selected a, .tabsBar li.selected a:hover, .tabsBar li.selected a:visited{ background:"tabiselected (Galaxy background)";  border:"tabiselected (Galaxy border)";  color:"white (Galaxy color)" }
 .tabsBar li a:hover{ background:"tabiselected (Galaxy background)";  color:"white (Galaxy color)" }
 
 .subtabsBar{ border-bottom:"subtabsbar (Galaxy border)";  font:"default (Galaxy font)" }
-.subtabsBar a, .subtabsBar a:hover, .subtabsBar a:visited{ border:"subtabisnotselected (Galaxy border)";  color:"blue.link (Galaxy color)" ;border-radius: 0 5px 0 0; -moz-border-radius: 0 5px 0 0; -webkit-border-radius: 0 5px 0 0 }
+.subtabsBar a, .subtabsBar a:hover, .subtabsBar a:visited{ border:"subtabisnotselected (Galaxy border)";  color:"blue.link (Galaxy color)" ;border-radius: 0 5px 0 0 }
 .subtabsBar li a:hover{ background:"subtabiselected (Galaxy background)";  color:"gray.dark (Galaxy color)" }
 .subtabsBar li.selected a, .subtabsBar li.selected a:hover, .subtabsBar li.selected a:visited{ background:"subtabiselected (Galaxy background)";  border:"subtabiselected (Galaxy border)";  color:"gray.dark (Galaxy color)" }
 
