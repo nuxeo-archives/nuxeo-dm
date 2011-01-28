@@ -2,10 +2,10 @@
 <theme name="galaxy" resource-bank="nuxeo" template-engines="jsf-facelets">
   <layout>
     <page name="default">
-      <section>
+      <section name="header">
         <cell>
           <!-- logo -->
-          <fragment type="generic fragment"/>
+          <fragment type="generic fragment" name="logo"/>
         </cell>
         <cell>
           <!-- user services -->
@@ -17,7 +17,7 @@
         </cell>
       </section>
       <section>
-        <cell>
+        <cell name="left column">
           <!-- tree view -->
           <fragment perspectives="default,multiple_domains" type="generic fragment"/>
           <!-- clip board -->
@@ -32,7 +32,7 @@
           <fragment type="region fragment"/>
         </cell>
       </section>
-      <section>
+      <section name="footer">
         <cell>
           <!-- copyrights -->
           <fragment type="generic fragment"/>
