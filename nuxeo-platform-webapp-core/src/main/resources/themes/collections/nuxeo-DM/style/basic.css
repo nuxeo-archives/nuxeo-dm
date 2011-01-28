@@ -26,7 +26,7 @@ input.button:hover{ border:1px solid #000 }
 input.button[disabled=disabled], input.button[disabled=disabled]:hover{ cursor:default }
 
 /* Header style */
-.header{ background-color:#333 }
+.headerSection{ background-color:#333 }
 .userActions, .searchService{ color:#e8e8e8;  font-size:9px;  line-height:185% }
 .userActions{ padding-top:11px }
 .searchService{ float:right;  vertical-align:middle;  padding:2px 2px 0 0 }
