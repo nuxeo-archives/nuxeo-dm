@@ -3,7 +3,7 @@
 .siteLogo a{ background:"site.logo" center center no-repeat;  top:0;  left:0;  border:none;  position:absolute;  height:38px;  width:120px;  border:1px }
 .siteLogo img{ position:absolute;  z-index:-1 }
 
-body{ font:normal 11px Arial,sans-serif;  margin:0;  padding:0 }
+body{ font: normal 11px 'Lucida Grande',Verdana,Arial,sans-serif;  margin:0;  padding:0 }
  
 a{ text-decoration:none;  font-weight:normal;  outline:none;  color:#06c }
 a:hover{ text-decoration:underline }
@@ -14,11 +14,14 @@ ul{ list-style:none;  margin:0 }
 h1, h2, h3, h4, h5, h6, form, p, li, div, dd, dt, dl, img, hr, fieldset{ margin:0;  padding:0 }
 
 input, table{ margin:0 }
- 
-div{ line-height:1.25em }
 
 img{ border:0 none;  outline:none }
- 
+
+/* STRUCTURING BORDERS*/
+.headerSection { border-bottom: 1px solid #292929 }
+td.leftColumnCell { border-right: 1px solid #e3e5e7 }
+.footerSection { border-top: 1px solid #e3e5e7 }
+
 /*-- GENERAL ELEMENTS --*/ 
 /*-- Buttons --*/
 input.button{ margin:5px 10px 10px 0px;  padding:2px 5px 2px 5px;  border:1px solid #c3c3c3;  background-color:#e8e8e8;  cursor:pointer }
@@ -27,14 +30,16 @@ input.button[disabled=disabled], input.button[disabled=disabled]:hover{ cursor:d
 
 /* Header style */
 .headerSection{ background-color:#333 }
-.userActions, .searchService{ color:#e8e8e8;  font-size:9px;  line-height:185% }
+.userActions, .searchService{ color:#cecece;  font-size:9px;  line-height:185% }
 .userActions{ padding-top:11px }
+.userActions a, .userActions a:hover, .userActions a:visited { color:#fff }
 .searchService{ float:right;  vertical-align:middle;  padding:2px 2px 0 0 }
+.searchService a, .searchService a:hover, .searchService a:visited { color:#fff }
 .advancedSearchLink{ line-height:1%;  margin:0 2px 0 0;  padding:0 }
 
 /*-- Breadcrumb area--*/
-div.breadcrumbArea{ height:25px;  background-color:#e8e8e8;  padding:3px 7px;  font-size:small;  line-height:1.25em }
-.breadcrumbArea a, .breadcrumbArea a:visited{ color:#c3c3c3 }
+div.breadcrumbArea{ background-color:#eeeff0; border-bottom: 1px solid #e3e5e7; padding:3px 7px;  font-size:small;  line-height:1.25em }
+.breadcrumbArea a, .breadcrumbArea a:visited{ color:#666 }
  
 .printButton{ float:right }
 .printButton div a img{ margin-left:5px;  height:16px;  width:16px }
@@ -57,16 +62,16 @@ td.dr-tree-h-text, td.dr-tree-h-text span, td.dr-tree-h-text a.treeLink{ white-s
 .dropIntoClipboardCopy{ background:"clipboardcopy (nuxeo DM background)" }
 
 .clipboardFunctions{ padding-top:10px;  border-top:2px solid #e8e8e8 }
-.clipboardFunctionn{ padding:2px 2px 2px 2px }
+.clipboardFunction{ padding:2px 2px 2px 2px }
+.clipboardFunction a { font-size: small }
 
-.userClipboard{ height:1%;  margin:30px 0 0 }
+.userClipboard{ height:1%;  margin:10px 0 0 }
 .userClipboard h4{ height:16px;  border-bottom:1px dotted #c3c3c3;  color:#c3c3c3;  margin:0px 0px 2px;  font-size:12px;  padding:8px 2px 2px 2px }
-.userClipboardContent{ margin:0;  padding:10px }
+.userClipboardContent{ margin: 0; padding: 10px 0 10px 3px }
  
 #clipboardCopy{ padding:3px }
 
 .clipboardRemoveItem{ float:right }
- 
 .clipboardEmptyMessage{ font-size:small;  font-style:italic;  padding:0 2px 2px 2px;  text-align:center }
 
 .smallIcon{ width:16px;  height:16px }
@@ -138,7 +143,9 @@ table.dataOutput thead th a, table.dataOutput thead th a:hover, table.dataOutput
 
 .dataInput{ margin-top:5px }
 
-.listingLayoutSelector{ float:right;  margin:11px 0 10px }
+.listingLayoutSelector{ float:right;  margin:11px 0 10px 7px }
+.listingLayoutSelector .contentViewPageSelectorDesc { float: left; padding: 2px 3px 0 0 }
+.listingLayoutSelector .langSelect { float: left; margin: 0 0 10px }
 
 .dataList thead th{ background-color:#e8e8e8;  border-bottom:1px solid #c3c3c3;  color:#c3c3c3;  padding:5px 3px;  text-align:left }
 .dataList thead th a, .dataList thead th a:link{ color:#c3c3c3 }
@@ -223,11 +230,11 @@ table thead th{ padding:3px;  text-align:left }
 .labelColumn{ font-weight:bold;  vertical-align:top;  width:120px }
 
 .rightsAdd{ margin:10px 0 10px 0 }
-.rightsAddManager{ background-color:#e8e8e8;  margin:3px 0 0 0;  width:100% }
+.rightsAddManager{ border: 1px solid #dedede;  margin:3px 0 0 0;  width:100% }
 .rightsAddLabel{ font-weight:bold;  padding:0 5px 0 0px }
 .rightsAddTitle{ background:#e8e8e8;  border:1px solid #c3c3c3;  padding:5px;  text-align:center }
 .rightsAddSelect{ border:1px solid #c3c3c3;  margin-top:0px }
-.rightsAddManager td{ border:1px solid #e8e8e8;  margin:0 10px 0 10px;  padding:10px }
+.rightsAddManager td{ margin:0 10px 0 10px;  padding:10px }
 .rightsAddManager .labelColumn{ width:80px }
 
 .smallButtonsGadget{ margin:0 0 5px 100px }
@@ -238,7 +245,6 @@ table thead th{ padding:3px;  text-align:left }
 .action_bar{ float:left;  line-height:normal;  margin:10px 10px 10px 0 }
 .action_bar ul{ list-style:none;  margin:0;  padding:0px 10px 0 0 }
 .action_bar li{ float:left }
-.action_bar img{ display:none }
 .action_bar a{ background-color:#e8e8e8;  border:1px solid #c3c3c3;  color:black;  cursor:pointer;  float:left;  margin-right:10px;  padding:4px 7px;  text-decoration:none }
 
 .tabsContent{ margin:0px;  padding:5px 10px 10px 10px }
@@ -354,6 +360,6 @@ div.syndicationLinks{font-size:9px; padding:2px 4px }
 .rich-fileupload-button-content{ padding:2px 6px 2px 19px }
 
 /* Footer style */
-.footerArea{ text-align:right;  color:#e8e8e8;  padding:5px 15px 5px 5px;  font-size:9px }
+.footerArea{ text-align:right;  color:#5c5c5c;  padding:5px 15px 5px 5px;  font-size:9px }
 .footerArea form, .footerArea p{ margin:5px 0 0;  padding:0 }
 .footerArea select.langSelect{ margin:9px 5px 0 }
