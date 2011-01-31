@@ -1,11 +1,11 @@
 /*-- global style --*/
-body{ font:normal 11px 'Lucida Grande',Verdana,Arial,sans-serif }
+html, body { font:"default (Grey font)" }
 
 /*-- GENERAL ELEMENTS --*/ 
 /*-- Buttons --*/
 input.button{ background:"buttons (Grey background)";  border:"buttons (Grey border)";  color:"black.lite (Grey color)";  font:"default (Grey font)" }
 input.button:hover{ border:"buttons.hover (Grey border)";  color:"black (Grey color)" }
-input.button[disabled="disabled"], input.button[disabled="disabled"]:hover{ border:"buttons (Grey border)";  color:"gray.medium (Grey color)" }
+input.button[disabled="disabled"], input.button[disabled="disabled"]:hover{ background:"disabled (Grey background)"; border:"buttons (Grey border)";  color:"gray.medium (Grey color)" }
 
 /* Header style */
 .header{ background:"topbar (Grey background)";  border:"topbar (Grey border)" }
@@ -52,7 +52,7 @@ table.dataOutput thead th a, table.dataOutput thead th a:hover, table.dataOutput
 .vocabularyEntryContent .currentDocumentInformation{ background:"blue.sky (Grey background)" }
 
 .dataList td{ border-bottom:"tablelines (Grey border)";  border-top:"tablelines (Grey border)" }
-.dataList thead th{ background:"tablethead (Grey background)";  border-bottom:"tablelines (Grey)";  color:"gray (Grey color)" }
+.dataList thead th{ background:"tablethead (Grey background)";  border-bottom:"tablelines (Grey border)";  color:"gray (Grey color)" }
 .dataList thead th a, .dataList thead th a:link{ color:"gray (Grey color)" }
 .dataList thead th a:visited{ color:"gray (Grey color)" }
 .dataList thead th a:active{ color:"gray (Grey color)" }
@@ -89,7 +89,7 @@ table.dataOutput thead th{ background:"tablethead (Grey background)";  border-bo
 .dataOutput td{ border-bottom:"tablelines (Grey border)";  border-top:"tablelines (Grey border)" }
 
 .rightsAddManager{ background:"addmanager (Grey background)" }
-.rightsAddTitle{ background:"blue.light (Grey background)";  border:"blue.border (Grey border)" }
+.rightsAddTitle{ background:"blue.lite (Grey background)";  border:"blue.border (Grey border)" }
 .rightsAddSelect{ border:"dataInput (Grey border)" }
 .rightsAddManager td{ background-color:"white (Grey background)";  border:"tabiselected (Grey border)" }
 
@@ -101,7 +101,7 @@ table.dataOutput thead th{ background:"tablethead (Grey background)";  border-bo
 .tabsContent table.trashTable thead th{ background-color:"orange.lite (Grey background)" }
 table.trashTable tbody tr.dataRowOdd{ background-color:"orange.odd (Grey background)" }
 
-.taskAssign{ background:"blue.light (Grey background)";  border:"blue.border (Grey border)" }
+.taskAssign{ background:"blue.lite (Grey background)";  border:"blue.border (Grey border)" }
 
 .directoryFilter, .searchField{ background:"search (Grey background)";  border:"dataInput (Grey border)" }
 

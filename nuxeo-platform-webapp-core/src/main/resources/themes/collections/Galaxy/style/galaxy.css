@@ -1,11 +1,11 @@
 /*-- global style --*/
-body{ font:"default (Galaxy font)" }
+html, body{ font:"default (Galaxy font)" }
 
 /*-- GENERAL ELEMENTS --*/ 
 /*-- Buttons --*/
 input.button{ background:"buttons (Galaxy background)";  border:"buttons (Galaxy border)";  color:"black.lite (Galaxy color)";  font:"default (Galaxy font)" }
 input.button:hover{ border:"buttons.hover (Galaxy border)";  color:"black (Galaxy color)" }
-input.button[disabled="disabled"], input.button[disabled="disabled"]:hover{ border:"buttons (Galaxy border)";  color:"gray.medium (Galaxy color)" }
+input.button[disabled="disabled"], input.button[disabled="disabled"]:hover{ background:"disabled (Galaxy background)"; border:"buttons (Galaxy border)";  color:"gray.medium (Galaxy color)" }
 
 /* Header style */
 .header{ background:"topbar (Galaxy background)";  border:"topbar (Galaxy border)" }
@@ -52,7 +52,7 @@ table.dataOutput thead th a, table.dataOutput thead th a:hover, table.dataOutput
 .vocabularyEntryContent .currentDocumentInformation{ background:"blue.sky (Galaxy background)" }
 
 .dataList td{ border-bottom:"tablelines (Galaxy border)";  border-top:"tablelines (Galaxy border)" }
-.dataList thead th{ background:"tablethead (Galaxy background)";  border-bottom:"tablelines (Galaxy)";  color:"gray (Galaxy color)" }
+.dataList thead th{ background:"tablethead (Galaxy background)";  border-bottom:"tablelines (Galaxy border)";  color:"gray (Galaxy color)" }
 .dataList thead th a, .dataList thead th a:link{ color:"gray (Galaxy color)" }
 .dataList thead th a:visited{ color:"gray (Galaxy color)" }
 .dataList thead th a:active{ color:"gray (Galaxy color)" }
@@ -84,7 +84,7 @@ table.dataOutput thead th{ background:"tablethead (Galaxy background)";  border-
 .dataOutput td{ border-bottom:"tablelines (Galaxy border)";  border-top:"tablelines (Galaxy border)" }
 
 .rightsAddManager{ background:"addmanager (Galaxy background)" }
-.rightsAddTitle{ background:"blue.light (Galaxy background)";  border:"blue.border (Galaxy border)" }
+.rightsAddTitle{ background:"blue.lite (Galaxy background)";  border:"blue.border (Galaxy border)" }
 .rightsAddSelect{ border:"dataInput (Galaxy border)" }
 .rightsAddManager td{ background-color:"white (Galaxy background)";  border:"tabiselected (Galaxy border)" }
 
@@ -96,7 +96,7 @@ table.dataOutput thead th{ background:"tablethead (Galaxy background)";  border-
 .tabsContent table.trashTable thead th{ background-color:"orange.lite (Galaxy background)" }
 table.trashTable tbody tr.dataRowOdd{ background-color:"orange.odd (Galaxy background)" }
 
-.taskAssign{ background:"blue.light (Galaxy background)";  border:"blue.border (Galaxy border)" }
+.taskAssign{ background:"blue.lite (Galaxy background)";  border:"blue.border (Galaxy border)" }
 
 .directoryFilter, .searchField{ background:"search (Galaxy background)";  border:"dataInput (Galaxy border)" }
 

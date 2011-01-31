@@ -3,7 +3,7 @@
 .siteLogo a{ background:"site.logo" center center no-repeat;  top:0;  left:0;  border:none;  position:absolute;  height:38px;  width:120px;  border:1px }
 .siteLogo img{ position:absolute;  z-index:-1 }
 
-body{ font: normal 11px 'Lucida Grande',Verdana,Arial,sans-serif;  margin:0;  padding:0 }
+html, body { font: normal 11px 'Lucida Grande',Verdana,Arial,sans-serif;  margin:0;  padding:0 }
  
 a{ text-decoration:none;  font-weight:normal;  outline:none;  color:#06c }
 a:hover{ text-decoration:underline }
