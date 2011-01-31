@@ -5,7 +5,7 @@
       <section name="header">
         <cell>
           <!-- logo -->
-          <fragment type="generic fragment" name="logo"/>
+          <fragment type="generic fragment"/>
         </cell>
         <cell>
           <!-- user services -->
