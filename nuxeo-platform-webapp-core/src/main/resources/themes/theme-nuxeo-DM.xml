@@ -25,7 +25,7 @@
           <!-- calendar -->
           <fragment perspectives="view_calendar" type="generic fragment"/>
         </cell>
-        <cell>
+        <cell name="main">
           <!-- breadcrumbs -->
           <fragment type="generic fragment"/>
           <!-- main area -->
@@ -52,7 +52,7 @@
       </section>
     </page>
     <page name="user_dashboard">
-      <section>
+      <section name="header">
         <cell>
           <!-- logo -->
           <fragment type="generic fragment"/>
@@ -74,7 +74,7 @@
           <fragment perspectives="multiple_domains" type="generic fragment"/>
         </cell>
       </section>
-      <section>
+      <section name="main">
         <cell>
           <!-- user tasks -->
           <fragment type="generic fragment"/>
@@ -95,7 +95,7 @@
           <fragment type="generic fragment"/>
         </cell>
       </section>
-      <section>
+      <section name="footer">
         <cell>
           <!-- copyrights -->
           <fragment type="generic fragment"/>
