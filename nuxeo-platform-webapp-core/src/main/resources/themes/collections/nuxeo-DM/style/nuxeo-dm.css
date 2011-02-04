@@ -1,0 +1,362 @@
+/*-- global styles for Wireframe --*/
+.siteLogo{ }
+.siteLogo a{ background:"site.logo" center center no-repeat;  top:0;  left:0; position:absolute;  height:38px;  width:120px; }
+.siteLogo img{ position:absolute;  z-index:-1 }
+
+html, body { font:"default (nuxeo DM font)";  margin:0;  padding:0 }
+ 
+a{ text-decoration:none; outline:none;  color:"link (nuxeo DM color)" }
+a:hover{ text-decoration:underline }
+a:visited{ color:"link.visited (nuxeo DM color)"}
+ 
+ul{ list-style:none;  margin:0 }
+
+h1, h2, h3, h4, h5, h6, form, p, li, div, dd, dt, dl, img, hr, fieldset{ margin:0;  padding:0 }
+
+input, table{ margin:0 }
+
+img{ border:0 none;  outline:none }
+
+h1{ color:"h1 (nuxeo DM color)";  font:"title1 (nuxeo DM font)";  overflow:auto }
+h2{ color:"h2 (nuxeo DM color)";  font:"title2 (nuxeo DM font)";  padding:0.5em 1em 0.5em 0 }
+h3{ color:"h3 (nuxeo DM color)";  font:"title3 (nuxeo DM font)";  margin:0;  padding:13px 0px 10px 0px }
+h4, h5, h6{ color:"h4+ (nuxeo DM color)";  font:"title4+ (nuxeo DM font)";  margin:10px 0px 5px 0px }
+
+/* STRUCTURING BORDERS*/
+.headerSection { border-bottom:"header (nuxeo DM border)" }
+.leftColumnCell { border-right:"leftCell (nuxeo DM border)"}
+.footerSection { border-top:"footer (nuxeo DM border)"}
+
+/*-- GENERAL ELEMENTS --*/ 
+/*-- Buttons --*/
+input.button{ margin:5px 10px 10px 0px;  padding:2px 5px 2px 5px;  border:"buttons (nuxeo DM border)";  background-color:"buttons (nuxeo DM background)";  cursor:pointer }
+input.button:hover{ border:"button.hover (nuxeo DM border)" }
+input.button[disabled=disabled], input.button[disabled=disabled]:hover{ cursor:default }
+
+/* Header style */
+.headerSection{ background-color:"header (nuxeo DM background)" }
+.userActions, .searchService{ color:"header (nuxeo DM color)";  font:"default (nuxeo DM font)";  line-height:185% }
+.userActions{ padding-top:11px }
+.userActions a, .userActions a:hover, .userActions a:visited { color:"header.link (nuxeo DM color)" }
+.searchService{ float:right;  vertical-align:middle;  padding:2px 2px 0 0 }
+.searchService a, .searchService a:hover, .searchService a:visited { color:"header.link (nuxeo DM color)" }
+.advancedSearchLink{ line-height:1%;  margin:0 2px 0 0;  padding:0 }
+/*-- Breadcrumb area--*/
+div.breadcrumbArea{ background-color:"breadcrumb (nuxeo DM background)"; border-bottom:"breadcrumb (nuxeo DM border)"; padding:3px 7px;  font:"small (nuxeo DM font)";  line-height:1.25em }
+.breadcrumbArea a, .breadcrumbArea a:visited{ color:"breadcrumb.link (nuxeo DM color)" }
+ 
+.printButton{ float:right }
+.printButton div a img{ margin-left:5px;  height:16px;  width:16px }
+.printButton .liveEditCreateButtons{ margin-right:5px;  border-right:"breadcrumb.separator (nuxeo DM border)";  padding-right:8px }
+ 
+.breadcrumbs{ height:20px;  padding:5px 4px 0px 0px;  float:left }
+ 
+/* Left Column:Tree Explorer and Clipboard styles */
+.cell{ margin-bottom:2px;  padding:2px }
+.cell img, .clipboardFunction img{ vertical-align:middle }
+.cell .iconImage{ margin-right:4px }
+
+.menu dd{ padding:10px 0px }
+ 
+.treeLink img{ margin:3px 4px 0;  vertical-align:top }
+
+td.dr-tree-h-text, td.dr-tree-h-text span, td.dr-tree-h-text a.treeLink{ white-space:normal }
+
+.dropInto{ background-color:"toolbar (nuxeo DM background)" }
+.dropIntoClipboardCopy{ background:"clipboardcopy (nuxeo DM background)" }
+
+.clipboardFunctions{ padding-top:10px;  border-top:"clipboard (nuxeo DM border)" }
+.clipboardFunction{ padding:2px 2px 2px 2px }
+.clipboardFunction a { font:"small (nuxeo DM font)" }
+
+.userClipboard{ height:1%;  margin:10px 0 0 }
+.userClipboard h4{ height:16px;  border-bottom:"dotted (nuxeo DM border)";  color:"clipboard.title (nuxeo DM color)";  margin:0px 0px 2px;  font-size:105%;  padding:8px 2px 2px 2px }
+.userClipboardContent{ margin: 0; padding: 10px 0 10px 3px }
+ 
+#clipboardCopy{ padding:3px }
+
+.clipboardRemoveItem{ float:right }
+.clipboardEmptyMessage{ font-size:small;  font-style:italic;  padding:0 2px 2px 2px;  text-align:center }
+
+.smallIcon{ width:16px;  height:16px }
+ 
+/*-- Default tabs --*/
+.tabsBar{ border-bottom:"tabsbar (nuxeo DM border)";  width:100%;  margin-top:5px;  line-height:normal;  float:left;  font-size:small }
+.tabsBar ul{ padding:0px 10px 0 0 }
+.tabsBar li{ margin-right:5px;  float:left }
+.tabsBar a, .tabsBar a:hover, .tabsBar a:visited{ border:"tabisnotselected (nuxeo DM border)";  color:"tabs.link (nuxeo DM color)"; display:block;  padding:3px 7px;  float:left }
+.tabsBar li.selected a, .tabsBar li.selected a:hover, .tabsBar li.selected a:visited, .tabsBar li a:hover{ color:"tabs.link.hover (nuxeo DM color)";  background-color:"tabsbar (nuxeo DM background)" }
+
+.subtabsBar{ border-bottom:"subtabsbar (nuxeo DM border)" }
+.subtabsBar a, .subtabsBar a:hover, .subtabsBar a:visited{ background-color:"subtabsbar (nuxeo DM background)"; color:"subtabs.link (nuxeo DM color)";  border:"subtabisnotselected (nuxeo DM border)" }
+.subtabsBar li.selected a, .subtabsBar li.selected a:hover, .subtabsBar li.selected a:visited{ color:"subtabs.link.hover (nuxeo DM color)"; background-color:"subtabsbar (nuxeo DM background)"; border: "subtabiselected (nuxeo DM border)" }
+ 
+/*-- Common style --*/
+.directoryBack{ background:"back (nuxeo DM background)";  padding:2px 2px 2px 20px }
+
+.taskActions{ width:470px }
+
+.wizardFrame{ border:"popups (nuxeo DM border)";  padding:0 5px !important;  width:800px }
+.wizardFrame .wizardButtonBar{ text-align:right }
+.wizardFrame .wizardFinish h4 img{ float:left;  margin-right:10px }
+.wizardFrame .templatePreview{ border:"neutral (nuxeo DM border)";  padding:10px !important }
+.wizardFrame .templatePreview img{ border:"popups (nuxeo DM border)";  float:left }
+.wizardFrame .templatePreview .templatePreviewDescription{ font-style:italic }
+
+.archiveTabContent{ margin-left:18px }
+
+.iconColumn{ text-align:center;  width:20px }
+.iconColumn .dropInto{ background-color:"toolbar (nuxeo DM background)" }
+.boldColumn{ font-weight:bold !important }
+.buttonColumn{ text-align:center;  width:280px }
+.radioColumn{ padding:0 0 0 5px;  vertical-align:top;  width:8px }
+.focusColumn{ background-color:"toolbar (nuxeo DM background)" }
+
+.relationActionsColumn{ text-align:center;  vertical-align:top;  width:60px }
+
+.iconColumn .cell{ background:none;  width:40px }
+.iconColumn img{ background:none;  position:relative;  z-index:25 }
+
+.twoColumns{ width:50% }
+
+table.dataOutput thead th a, table.dataOutput thead th a:hover, table.dataOutput thead th a:active, table.dataOutput thead th a:visited{ color:"dataoutput.header.link (nuxeo DM color)" }
+
+.dataInputGroup{ margin:0;  padding:0;  vertical-align:top }
+
+.vocabularyEntryContent{ margin-left:18px }
+.vocabularyEntryContent .dataInput{ border:none;  margin-bottom:15px }
+.vocabularyEntryContent .currentDocumentInformation{ background-color:"toolbar (nuxeo DM background)" }
+
+.dataInput textarea, .dataInput .dataInputText{ width:500px }
+
+.selectDocumentType{ margin-top:10px }
+.selectDocumentType td{ padding:3px }
+.selectDocumentType td a img{ margin-right:4px;  vertical-align:top }
+
+.dataOutput, .dataOutput2Columns, .dataList{ width:100% }
+.dataList td{ border-bottom:"cells (nuxeo DM border)";  border-top:"cells (nuxeo DM border)";  padding:5px 3px }
+.dataOutput td table td{ border:0px none transparent }
+
+.currentItemDescription{  display:block }
+
+.dataInput{ margin-top:5px }
+
+.listingLayoutSelector{ float:right;  margin:11px 0 10px 7px }
+.listingLayoutSelector .contentViewPageSelectorDesc { float: left; padding: 2px 3px 0 0 }
+.listingLayoutSelector .langSelect { float: left; margin: 0 0 10px }
+
+.dataList thead th{ background-color:"thead (nuxeo DM background)";  border-bottom:"table.header (nuxeo DM border)";  color:"text (nuxeo DM color)";  padding:5px 3px;  text-align:left }
+.dataList thead th a, .dataList thead th a:link{ color:"datalist.header.link (nuxeo DM color)" }
+.dataList thead th a:visited{ color:"datalist.header.link (nuxeo DM color)" }
+.dataList thead th a:active{ color:"datalist.header.link (nuxeo DM color)" }
+.dataList thead th a:hover{ color:"datalist.header.link (nuxeo DM color)";  text-decoration:underline }
+
+.relationPredicateColumn{ vertical-align:top;  width:100px }
+
+.archiveTabContent .notEditable{ border:none }
+
+.dataInput .button{ margin:0 10px 0 0 }
+
+.pageNavigationControls{ border:"navigation (nuxeo DM border)";  margin:5px 0px;  padding:7px;  text-align:center }
+.pageNavigationControls span{ font-weight:bold;  margin:10px 5px;  vertical-align:top }
+.pageNavigationControls input{ margin-left:5px }
+
+.dataList{ background-color:"table (nuxeo DM background)";  border-collapse:collapse;  margin:0 }
+
+.dataInput .fieldColumn table.mceEditor .mceToolbarBottom{ background-color:"toolbar (nuxeo DM background)" }
+
+.buttonsGadgetNoForm .button{ margin-right:10px }
+
+.foldableBox{ border:"foldable (nuxeo DM border)";  margin-bottom:20px }
+.foldableBox h3{ background:"folded (nuxeo DM background)";  border-bottom:"foldable (nuxeo DM border)";  color:"foldablebox.title (nuxeo DM color)";  font-size:11px;  padding:3px 3px 3px 18px }
+.foldableBox h3 a, .foldableBox h3 a:link, .foldableBox h3 a:visited, .foldableBox h3 a:hover, .foldableBox h3 a:visited:hover{ color:"foldablebox.title (nuxeo DM color)";  display:block }
+.foldableBox h3.folded{ background:"folded (nuxeo DM background)" }
+.foldableBox h3.unfolded{ background:"unfolded (nuxeo DM background)" }
+.foldableBox .boxBody{ padding:10px }
+
+.massEditForm foldableBox{ margin-right:15px }
+
+.relationCreateFieldColumn, .fieldColumn, .workflowFieldColumn{ vertical-align:top }
+
+.archiveTabContent .currentDocumentInformation{ background-color:"toolbar (nuxeo DM background)" }
+
+.buttonsGadget{ margin:5px 0px 5px 135px }
+
+.dataInput td{ border:none 0; padding:7px 4px }
+.dataInput textarea, .dataInput .dataInputText, .dataInput .dataInputTextNoSize{ border:"dataInput (nuxeo DM border)"; padding:4px; vertical-align:top }
+
+.relationCommentList{ background:transparent }
+.relationCommentList td{ border:0px none }
+.relationCommentColumn{ vertical-align:top }
+
+.commentBlock{ margin-top:7px;  margin-bottom:8px;  padding:2px 10px 2px 0px }
+.commentActions{ float:right;  font-size:10px;  margin-right:4px;  padding:3px }
+.commentQuote{ margin:5px 0 5px 0 }
+.commentAuthor{ background:"comment (nuxeo DM background)";  font-weight:bold;  padding:5px 3px 3px 24px }
+.commentCreationDate{ font-weight:normal }
+.relationCreateLabelColumn{ width:80px }
+
+.serverChoice{ float:left;  margin-top:20px;  margin-right:30px;  text-align:center;  width:200px }
+
+.dataInput .fieldColumn table.mceEditor{ background:"toolbar (nuxeo DM background)";  border:"dataInput (nuxeo DM border)" }
+
+table.dataOutput thead th{ background:"thead (nuxeo DM background)";  border-bottom:"dataInput (nuxeo DM border)";  color:"dataoutput.header.link (nuxeo DM color)";  padding:5px 3px;  text-align:left }
+
+.currentDocumentDescription{ padding:4px 0 }
+
+.dataOutput, .dataOutput2Columns{ border-collapse:collapse;  margin-top:7px;  margin-bottom:5px }
+.dataOutput2Columns td{ padding:5px 3px;  vertical-align:top }
+
+table thead th{ padding:3px;  text-align:left }
+
+.fieldColumn img{ margin-left:4px;  margin-right:4px;  vertical-align:top }
+
+.relationCreateFieldColumn table, .fieldColumn table, .workflowFieldColumn table{ border:0px none;  margin:0 0 0 0;  vertical-align:top }
+
+.required{ background:"required (nuxeo DM background)";  padding-right:8px }
+
+.archiveTabContent .dataInput{ border:none;  margin-bottom:15px }
+
+.closedContent{ border:"neutral (nuxeo DM border)";  margin:15px 0px 0px 0px;  padding:0px 10px 10px 10px }
+
+.dataOutput td{ border-bottom:"dataInput (nuxeo DM border)";  border-top:"dataInput (nuxeo DM border)";  padding:5px 3px }
+
+.relationObjectColumn{ vertical-align:top;  width:100px }
+
+.workflowLabelColumn{ width:120px }
+
+.labelColumn{ font-weight:bold;  vertical-align:top;  width:120px }
+
+.rightsAdd{ margin:10px 0 10px 0 }
+.rightsAddManager{ border: "neutral (nuxeo DM border)";  margin:3px 0 0 0;  width:100% }
+.rightsAddLabel{ font-weight:bold;  padding:0 5px 0 0px }
+.rightsAddTitle{ background:"toolbar (nuxeo DM background)";  border:"neutral (nuxeo DM border)";  padding:5px;  text-align:center }
+.rightsAddSelect{ border:"neutral (nuxeo DM border)";  margin-top:0px }
+.rightsAddManager td{ margin:0 10px 0 10px;  padding:10px }
+.rightsAddManager .labelColumn{ width:80px }
+
+.smallButtonsGadget{ margin:0 0 5px 100px }
+
+.dataInput select{ border:"dataInput (nuxeo DM border)";  padding:2px 1px 2px 1px;  vertical-align:top }
+.dataInput .fieldColumn table.mceEditor .mceEditorIframe{ background-color:"empty (nuxeo DM background)";  border:"dataInput (nuxeo DM border)";  padding:5px }
+
+.action_bar{ float:left;  line-height:normal;  margin:10px 10px 10px 0 }
+.action_bar ul{ list-style:none;  margin:0;  padding:0px 10px 0 0 }
+.action_bar li{ float:left }
+.action_bar a{ background:"toolbar (nuxeo DM background)";  border:"actionbar (nuxeo DM border)";  color:"actionbar.link (nuxeo DM color)";  cursor:pointer;  float:left;  margin-right:10px;  padding:4px 7px;  text-decoration:none }
+
+.tabsContent{ margin:0px;  padding:5px 10px 10px 10px }
+.tabsContent table.trashTable thead th{ background-color:"thead (nuxeo DM background)" }
+
+table.trashTable tbody tr.dataRowOdd{ background-color:"odd (nuxeo DM background)" }
+
+textarea{ padding:5px }
+
+.userAndGroupSearch{ margin:0 }
+.userAndGroupFilter{ margin:15px 0 0 0 }
+
+.buttonsGadgetNoForm{ margin:0px 5px }
+
+.dataOutput .button{ margin:2px 10px 2px 0px !important }
+
+.taskAssign{ background-color:"task (nuxeo DM background)";  border:"neutral (nuxeo DM border)";  display:block;  margin:5px 0px 10px 0px;  padding:5px;  text-align:center }
+
+.directoryFilter, .searchField{ background:"search (nuxeo DM background)";  border:"search (nuxeo DM border)";  margin:0 5px 10px 0;  padding:3px 3px 3px 20px }
+
+.taskPrincipalSelect select{ border:"neutral (nuxeo DM border)";  margin:5px 0px 10px 15px;  padding:2px 1px 2px 1px }
+
+.dataRowOdd{ background-color:"odd (nuxeo DM background)" }
+
+table.dataOutput th a img{ margin:0 0 0 2px;  padding:0;  vertical-align:bottom }
+table.dataInput td.fieldColumn label{ vertical-align:top }
+
+/* Summary View */
+h3.summaryTitle{ border-bottom:"summary (nuxeo DM border)";  color:"h3.summary (nuxeo DM color)";  font:"title4+ (nuxeo DM font)";  margin:0px 0px 10px 0px;  padding:17px 0px 3px 0px }
+
+.dublincore_block table.floatingLeftTable{ float:left;  margin-right:100px }
+
+.labelColumnLeftAlign{ font-weight:bold;  padding-right:30px }
+
+.boldLabel{ font-weight:bold }
+
+.rank_block, .publication_block, .attachments{ margin-top:15px }
+
+.content_block table{width:100%; margin-bottom:10px }
+.content_block td{ padding:0px 0px 10px 0px;  vertical-align:top }
+.content_block .labelColumn{ width:100px }
+.content_block .fieldColumn div{ padding:0px 0px 2px }
+.content_block img{ padding:0px 5px }
+.content_block .actionsColumn{width:20%; vertical-align:top }
+.note_content_block{ border:"neutral (nuxeo DM border)";  margin-top:20px;  padding:15px }
+
+.lockFile_block, .restoreFile_block{ padding:0px 0px 10px }
+
+.summary_locked{ color:"locked (nuxeo DM color)";  font-weight:bold }
+.summary_unlocked{ color:"unlocked (nuxeo DM color)";  font-weight:bold }
+
+.lockDetail, .DetailList{ padding-top:5px }
+
+.lcAndVersion{ border:"neutral (nuxeo DM border)";  padding:3px }
+
+.actions_block{ border:"neutral (nuxeo DM border)";  margin:10px 0;  padding:10px 7px 3px }
+
+.comments_block .commentBlock{ border:none }
+.comments_block .commentQuote{ margin:5px 0 5px 24px }
+
+.metadata_block .dataInput td{ padding:3px }
+
+/* layout view */
+.layoutViewMode{ margin:0px;  padding:0px }
+.layoutViewMode li{ display:inline }
+.layoutViewMode a img{ border:"empty (nuxeo DM border)" }
+.layoutViewMode a:hover img, .layoutViewMode li.selected img{ border:"layout.select (nuxeo DM border)" }
+
+.summary_div_0{ float:left;  width:62% }
+.summary_div_1{ float:right;  padding:10px 0;  width:33% }
+.summary_div_1 h3.summaryTitle{ color:"h3.summary (nuxeo DM color)";  font-size:12px }
+.summary_div_2{ clear:both }
+
+.bigIcon{ width:50px }
+
+.syndicationContainer{height:30px }
+
+div.syndicationButton{background-color:"rss (nuxeo DM background)"; float:right; font-size:9px; margin-bottom:5px; margin-top:10px }
+div.syndicationLinks{font:"small (nuxeo DM font)"; padding:2px 4px }
+
+/* Advanced Search */
+.listShuttleTable .listShuttleSelectionActions a{ display:block }
+
+/* Pop ups */
+/* Search document relation */
+.genericPopUp{ background-color:"empty (nuxeo DM background)";  position:absolute;  width:400px;  border:"popups (nuxeo DM border)";  z-index:10000;  display:none }
+.genericPopUp .closePopUpHeader{ background-color:"popupheader (nuxeo DM background)";  border-bottom:"popups (nuxeo DM border)";  padding:3px;  text-align:right }
+.genericPopUp .closePopUpHeader .closePopUp{ float:right;  cursor:pointer }
+.genericPopUp .closePopUpHeader .popUpTitle{ float:left;  font-size:110% }
+.genericPopUp .popUpContent{ overflow:auto;  height:390px;  padding:10px }
+
+/* huge popUp */
+.bigPopUp{ width:80%;  height:70% }
+
+/* RichFaces custom */
+.dr-tree-h-ic-div{ margin-left:8px;  padding-left:10px }
+.treeNodeHighlightedClass{ text-decoration:none }
+.treeNodeSelectedClass{ border:none }
+.rich-fileupload-list-decor{ margin:10px 0px }
+.rich-fileupload-button, .rich-fileupload-button-border{ padding:2px }
+.rich-fileupload-button-light, .rich-fileupload-button-press{ padding:1px }
+.rich-fileupload-button-content{ padding:2px 6px 2px 19px }
+
+/* Messages */
+.error{color:"error (nuxeo DM color)"; font:"big.default (nuxeo DM font)"}
+.infoMessage{ background:"info (nuxeo DM background)";  border:"info.message (nuxeo DM border)";  color:"message (nuxeo DM color)"; display:block;  margin-bottom:5px;  padding:5px 5px 5px 23px }
+.infoFeedback{ background:"info (nuxeo DM background)";  border:"info.message (nuxeo DM border)";  color:"message (nuxeo DM color)"; padding:7px 7px 7px 24px }
+.warningMessage{ background:"warning (nuxeo DM background)";  border:"warning.message (nuxeo DM border)";  color:"warning (nuxeo DM color)"; display:block;  margin:2px 0 12px 0;  padding:5px 5px 5px 23px;  width:500px }
+.warningFeedback{ background:"warning (nuxeo DM background)";  border:"warning.message (nuxeo DM border)";  color:"warning (nuxeo DM color)"; padding:7px 7px 7px 24px }
+.errorMessage{ background:"warning (nuxeo DM background)";  border:"error.message (nuxeo DM border)";  color:"error (nuxeo DM color)"; display:block;  margin:2px 0 2px 0;  padding:3px 3px 3px 23px;  width:480px }
+.errorFeedback{ background:"warning (nuxeo DM background)";  border:"error.message (nuxeo DM border)";  color:"error (nuxeo DM color)"; padding:7px 7px 7px 24px }
+.facesStatusMessage{ left:48%;  position:absolute;  top:40% }
+.facesStatusMessage ul, .infoFeedback ul, .warningFeedback ul, .errorFeedback ul{ padding:10px;  width:200px }
+
+/* Footer style */
+.footerArea{ text-align:right;  color:"footer (nuxeo DM color)";  padding:5px 15px 5px 5px;  font:"small (nuxeo DM font)" }
+.footerArea form, .footerArea p{ margin:5px 0 0;  padding:0 }

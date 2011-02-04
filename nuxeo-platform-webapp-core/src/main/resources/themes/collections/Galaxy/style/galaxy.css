@@ -1,135 +1,93 @@
-/*-- global style --*/
-html, body{ font:"default (Galaxy font)" }
+/*-- global styles for Wireframe --*/
+.siteLogo{ }
+.siteLogo a{ background:"site.logo" center center no-repeat;  top:0;  left:0; position:absolute;  height:38px;  width:120px; }
+.siteLogo img{ position:absolute;  z-index:-1 }
+
+html, body { font:"default (Galaxy font)" }
+ 
+a{ text-decoration:none; outline:none;  color:"link (Galaxy color)" }
+a:hover{ text-decoration:underline }
+a:visited{ color:"link.visited (Galaxy color)"}
+
+h1{ color:"h1 (Galaxy color)";  font:"title1 (Galaxy font)";  overflow:auto }
+h2{ color:"h2 (Galaxy color)";  font:"title2 (Galaxy font)";  padding:0.5em 1em 0.5em 0 }
+h3{ color:"h3 (Galaxy color)";  font:"title3 (Galaxy font)";  margin:0;  padding:13px 0px 10px 0px }
+h4, h5, h6{ color:"h4+ (Galaxy color)";  font:"title4+ (Galaxy font)";  margin:10px 0px 5px 0px }
+
+/* STRUCTURING BORDERS*/
+.headerSection { border-bottom:"header (Galaxy border)" }
+.leftColumnCell { border-right:"leftCell (Galaxy border)"}
+.footerSection { border-top:"footer (Galaxy border)"}
 
 /*-- GENERAL ELEMENTS --*/ 
 /*-- Buttons --*/
-input.button{ background:"buttons (Galaxy background)";  border:"buttons (Galaxy border)";  color:"black.lite (Galaxy color)";  font:"default (Galaxy font)" }
-input.button:hover{ border:"buttons.hover (Galaxy border)";  color:"black (Galaxy color)" }
-input.button[disabled="disabled"], input.button[disabled="disabled"]:hover{ background:"disabled (Galaxy background)"; border:"buttons (Galaxy border)";  color:"gray.medium (Galaxy color)" }
+input.button{ margin:5px 10px 10px 0px;  padding:2px 5px 2px 5px;  border:"buttons (Galaxy border)";  background-color:"buttons (Galaxy background)";  cursor:pointer }
+input.button:hover{ border:"button.hover (Galaxy border)" }
+input.button[disabled=disabled], input.button[disabled=disabled]:hover{ cursor:default }
 
 /* Header style */
-.header{ background:"topbar (Galaxy background)";  border:"topbar (Galaxy border)" }
-.userActions, .searchService{ color:#cecece }
-.userActions a, .searchService a, .userActions a:visited, .searchService a:visited{ color:#fff }
+.headerSection{ background-color:"header (Galaxy background)" }
+.userActions, .searchService{ color:"header (Galaxy color)";  font:"default (Galaxy font)" }
+.userActions a, .userActions a:hover, .userActions a:visited { color:"header.link (Galaxy color)" }
+.searchService a, .searchService a:hover, .searchService a:visited { color:"header.link (Galaxy color)" }
 
 /*-- Breadcrumb area--*/
-div.breadcrumbArea{ background-color:#eeeff0 }
-.breadcrumbArea a, .breadcrumbArea a:visited{ color:#666 }
+div.breadcrumbArea{ background-color:"breadcrumb (Galaxy background)"; border-bottom:"breadcrumb (Galaxy border)"; font:"small (Galaxy font)"; }
+.breadcrumbArea a, .breadcrumbArea a:visited{ color:"breadcrumb.link (Galaxy color)" }
 
+ 
 /* Left Column:Tree Explorer and Clipboard styles */
-.clipboardFunctions{ border-top:2px solid #e7e7e7 }
-.userClipboard h4{ border-bottom:1px dotted #999;  color:#5c5c5c }
-
+.userClipboard h4{border-bottom:"dotted (Galaxy border)";  color:"clipboard.title (Galaxy color)";}
+ 
 /*-- Default tabs --*/
 .tabsBar{ border-bottom:"tabsbar (Galaxy border)" }
-.tabsBar a, .tabsBar a:hover, .tabsBar a:visited{ background:"white (Galaxy background)";  border:"tabisnotselected (Galaxy border)";  color:"blue.link (Galaxy color)" }
-.tabsBar li.selected a, .tabsBar li.selected a:hover, .tabsBar li.selected a:visited{ background:"tabiselected (Galaxy background)";  border:"tabiselected (Galaxy border)";  color:"white (Galaxy color)" }
-.tabsBar li a:hover{ background:"tabiselected (Galaxy background)";  color:"white (Galaxy color)" }
-
-.subtabsBar{ border-bottom:"subtabsbar (Galaxy border)";  font:"default (Galaxy font)" }
-.subtabsBar a, .subtabsBar a:hover, .subtabsBar a:visited{ border:"subtabisnotselected (Galaxy border)";  color:"blue.link (Galaxy color)" }
-.subtabsBar li a:hover{ background:"subtabiselected (Galaxy background)";  color:"gray.dark (Galaxy color)" }
-.subtabsBar li.selected a, .subtabsBar li.selected a:hover, .subtabsBar li.selected a:visited{ background:"subtabiselected (Galaxy background)";  border:"subtabiselected (Galaxy border)";  color:"gray.dark (Galaxy color)" }
-
+.tabsBar a, .tabsBar a:hover, .tabsBar a:visited{ border:"tabisnotselected (Galaxy border)";  color:"tabs.link (Galaxy color)";}
+.tabsBar li.selected a, .tabsBar li.selected a:hover, .tabsBar li.selected a:visited, .tabsBar li a:hover{ color:"tabs.link.hover (Galaxy color)";  background-color:"tabsbar (Galaxy background)"; border: "tabiselected (Galaxy border)" }
+.subtabsBar{ border-bottom:"subtabsbar (Galaxy border)" }
+.subtabsBar a, .subtabsBar a:visited{ background-color:"white (Galaxy background)"; color:"subtabs.link (Galaxy color)";  border:"subtabisnotselected (Galaxy border)" }
+.subtabsBar a:hover, .subtabsBar li.selected a, .subtabsBar li.selected a:hover, .subtabsBar li.selected a:visited{ color:"subtabs.link.hover (Galaxy color)"; background-color:"subtabsbar (Galaxy background)"; border: "subtabiselected (Galaxy border)" }
+ 
 /*-- Common style --*/
-h1{ color:"gray.dark (Galaxy color)" }
-h2{ color:"gray.dark (Galaxy color)" }
-h3{ color:"gray.dark (Galaxy color)" }
-h4, h5, h6{ color:"gray.dark (Galaxy color)" }
 
-.directoryBack{ background:"back (Galaxy background)" }
+table.dataOutput thead th a, table.dataOutput thead th a:hover, table.dataOutput thead th a:active, table.dataOutput thead th a:visited{ color:"dataoutput.header.link (Galaxy color)" }
+table.dataOutput thead th{ background:"thead (Galaxy background)";  border-bottom:"dataInput (Galaxy border)";  color:"dataoutput.header.link (Galaxy color)" }
+.dataList td{ border-bottom:"cells (Galaxy border)";  border-top:"cells (Galaxy border)"}
+.dataList thead th{ background-color:"thead (Galaxy background)";  border-bottom:"table.header (Galaxy border)";  color:"text (Galaxy color)" }
+.dataList thead th a, .dataList thead th a:link{ color:"datalist.header.link (Galaxy color)" }
+.dataList thead th a:visited{ color:"datalist.header.link (Galaxy color)" }
+.dataList thead th a:active{ color:"datalist.header.link (Galaxy color)" }
+.dataList thead th a:hover{ color:"datalist.header.link (Galaxy color)";  text-decoration:underline }
+.dataOutput td{ border-bottom:"dataInput (Galaxy border)";  border-top:"dataInput (Galaxy border)" }
 
-.wizardFrame{ border:"blue.sky (Galaxy border)" }
-.wizardFrame .templatePreview{ border:"blue.sky (Galaxy border)" }
-.wizardFrame .templatePreview img{ border:"preview (Galaxy border)" }
+table.trashTable thead th{ background-color:"thead (Galaxy background)" }
+table.trashTable tbody tr.dataRowOdd{ background-color:"odd (Galaxy background)" }
 
-.iconColumn .dropInto{ background:"blue.sky (Galaxy background)" }
+.dataRowOdd{ background-color:"odd (Galaxy background)" }
 
-.focusColumn{ background:"blue.sky (Galaxy background)" }
+.pageNavigationControls{ border:"navigation (Galaxy border)" }
 
-table.dataOutput thead th a, table.dataOutput thead th a:hover, table.dataOutput thead th a:active, table.dataOutput thead th a:visited{ color:"gray (Galaxy color)" }
-
-.vocabularyEntryContent .currentDocumentInformation{ background:"blue.sky (Galaxy background)" }
-
-.dataList td{ border-bottom:"tablelines (Galaxy border)";  border-top:"tablelines (Galaxy border)" }
-.dataList thead th{ background:"tablethead (Galaxy background)";  border-bottom:"tablelines (Galaxy border)";  color:"gray (Galaxy color)" }
-.dataList thead th a, .dataList thead th a:link{ color:"gray (Galaxy color)" }
-.dataList thead th a:visited{ color:"gray (Galaxy color)" }
-.dataList thead th a:active{ color:"gray (Galaxy color)" }
-.dataList thead th a:hover{ color:"gray (Galaxy color)" }
-
-.pageNavigationControls{ border:"blue.sky.mini (Galaxy border)" }
-
-.dataInput .fieldColumn table.mceEditor .mceToolbarBottom{ background:"blue.sky (Galaxy background)" }
-
-.foldableBox{ border:"tabisnotselected (Galaxy border)" }
-.foldableBox h3{ background:"tabiselected (Galaxy background)";  border-bottom:"tabiselected (Galaxy border)" }
+.foldableBox{ border:"foldable (Galaxy border)" }
+.foldableBox h3{ background:"folded (Galaxy background)";  border-bottom:"foldable (Galaxy border)";  color:"foldablebox.title (Galaxy color)"}
+.foldableBox h3 a, .foldableBox h3 a:link, .foldableBox h3 a:visited, .foldableBox h3 a:hover, .foldableBox h3 a:visited:hover{ color:"foldablebox.title (Galaxy color)"}
 .foldableBox h3.folded{ background:"folded (Galaxy background)" }
 .foldableBox h3.unfolded{ background:"unfolded (Galaxy background)" }
 
-.archiveTabContent .currentDocumentInformation{ background-color:"blue.sky (Galaxy background)" }
-
-.dataInput textarea, .dataInput .dataInputText, .dataInput .dataInputTextNoSize{ border:"dataInput (Galaxy border)" }
-
-.commentAuthor{ background:"comment (Galaxy background)" }
-
-.dataInput .fieldColumn table.mceEditor{ background:"blue.sky (Galaxy background)";  border:"gray.light (Galaxy border)" }
-
-table.dataOutput thead th{ background:"tablethead (Galaxy background)";  border-bottom:"tablelines (Galaxy border)";  color:"gray (Galaxy color)" }
-
-.required{ background:"required (Galaxy background)" }
-
-.closedContent{ background:"white (Galaxy background)";  border:"blue.border (Galaxy border)" }
-
-.dataOutput td{ border-bottom:"tablelines (Galaxy border)";  border-top:"tablelines (Galaxy border)" }
-
-.rightsAddManager{ background:"addmanager (Galaxy background)" }
-.rightsAddTitle{ background:"blue.lite (Galaxy background)";  border:"blue.border (Galaxy border)" }
-.rightsAddSelect{ border:"dataInput (Galaxy border)" }
-.rightsAddManager td{ background-color:"white (Galaxy background)";  border:"tabiselected (Galaxy border)" }
-
-.dataInput select{ border:"dataInput (Galaxy border)" }
-.dataInput .fieldColumn table.mceEditor .mceEditorIframe{ background-color:"white (Galaxy background)";  border:"preview (Galaxy border)" }
-
-.action_bar a{ background:"buttons (Galaxy background)";  border:"buttons (Galaxy border)";  color:"black.lite (Galaxy color)" }
-
-.tabsContent table.trashTable thead th{ background-color:"orange.lite (Galaxy background)" }
-table.trashTable tbody tr.dataRowOdd{ background-color:"orange.odd (Galaxy background)" }
-
-.taskAssign{ background:"blue.lite (Galaxy background)";  border:"blue.border (Galaxy border)" }
-
-.directoryFilter, .searchField{ background:"search (Galaxy background)";  border:"dataInput (Galaxy border)" }
-
-.taskPrincipalSelect select{ border:"dataInput (Galaxy border)" }
-
-.dataRowOdd{ background:"tableevenlines (Galaxy background)" }
+.action_bar a{ background:"toolbar (Galaxy background)";  border:"actionbar (Galaxy border)";  color:"actionbar.link (Galaxy color)"}
 
 /* Summary View */
-h3.summaryTitle{ border-bottom:"summary (Galaxy border)";  color:"gray.dark (Galaxy color)" }
+h3.summaryTitle{ border-bottom:"summary (Galaxy border)";  color:"h3.summary (Galaxy color)";  font:"title4+ (Galaxy font)" }
+.summary_locked{ color:"locked (Galaxy color)";  font-weight:bold }
+.summary_unlocked{ color:"unlocked (Galaxy color)";  font-weight:bold }
 
-.note_content_block{ border:1px solid #d7d7d7 }
-
-.summary_locked{ color:"red (Galaxy color)" }
-.summary_unlocked{ color:"green (Galaxy color)" }
-
-.lcAndVersion{ border:1px solid #dedede }
-
-.actions_block{ border:1px solid #dedede }
-
-.layoutViewMode a:hover img, .layoutViewMode li.selected img{ border:1px solid #aaa }
-
-.summary_div_1 h3.summaryTitle{ color:#848484 }
-
-div.syndicationButton{ background-color:"rss (Galaxy background)" }
+/* Pop ups */
+/* Search document relation */
+.genericPopUp{ background-color:"empty (Galaxy background)";  position:absolute;  width:400px;  border:"popups (Galaxy border)";  z-index:10000;  display:none }
+.genericPopUp .closePopUpHeader{ background-color:"popupheader (Galaxy background)";  border-bottom:"popups (Galaxy border)";  padding:3px;  text-align:right }
 
 /* Messages */
-.error{ color:"red (Galaxy color)" }
-.infoMessage{ background:"info (Galaxy background)";  border:"blue.border (Galaxy border)";  color:"blue.dark (Galaxy color)" }
-.infoFeedback{ background:"info (Galaxy background)";  border:"infofeedback (Galaxy border)";  color:"blue.dark (Galaxy color)" }
-.warningMessage{ background:"warning (Galaxy background)";  border:"dataInput (Galaxy border)";  color:"black (Galaxy color)" }
-.warningFeedback{ background:"warning (Galaxy background)";  border:"warningfeedback (Galaxy border)";  color:"black (Galaxy color)" }
-.errorMessage{ background:"warning (Galaxy background)";  border:"dataInput (Galaxy border)";  color:"black (Galaxy color)" }
-.errorFeedback{ background:"warning (Galaxy background)";  border:"warningfeedback (Galaxy border)";  color:"black (Galaxy color)" }
+.infoMessage{ background:"info (Galaxy background)";  border:"info.message (Galaxy border)";  color:"message (Galaxy color)" }
+.infoFeedback{ background:"info (Galaxy background)";  border:"info.message (Galaxy border)";  color:"message (Galaxy color)" }
+
 
 /* Footer style */
-.footerArea{ color:#5c5c5c }
+.footerArea{ text-align:right;  color:"footer (Galaxy color)"; font:"small (Galaxy font)" }

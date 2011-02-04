@@ -1,6 +1,6 @@
 
-basic.css:
+nuxeo-dm.css:
      description: Basic skin for nuxeo DM
-     preview: basic.png
+     preview: nuxeo-dm.png
      skin: true
      base: true
