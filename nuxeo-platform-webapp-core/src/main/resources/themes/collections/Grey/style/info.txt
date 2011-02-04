@@ -1,5 +1,0 @@
-
-grey.css:
-     description: Grey theme
-     preview: grey.png
-     skin: true

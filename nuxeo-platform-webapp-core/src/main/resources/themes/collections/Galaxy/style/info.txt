@@ -1,5 +1,4 @@
 
 galaxy.css:
-     description: Default theme
-     preview: galaxy.png
+     description: Galaxy skin
      skin: true
