@@ -140,9 +140,6 @@ public class SearchActionsBean extends InputController implements
     private transient ClipboardActions clipboardActions;
 
     @In(create = true)
-    private transient SearchColumns searchColumns;
-
-    @In(create = true)
     private transient Context conversationContext;
 
     private String queryErrorMsg;
@@ -274,18 +271,6 @@ public class SearchActionsBean extends InputController implements
                 resultsProvidersCache.invalidate(PROV_NXQL);
                 resultsProvider = resultsProvidersCache.get(PROV_NXQL);
                 page = ACTION_PAGE_SEARCH_NXQL;
-            } else if (searchTypeId == SearchType.FORM) {
-                String sortColumn = searchColumns.getSortColumn();
-                boolean sortAscending = searchColumns.getSortAscending();
-                SortInfo sortInfo = null;
-                if (sortColumn != null) {
-                    sortInfo = new SortInfo(sortColumn, sortAscending);
-                }
-
-                resultsProvidersCache.invalidate(QM_ADVANCED);
-                resultsProvider = resultsProvidersCache.get(QM_ADVANCED,
-                        sortInfo);
-                page = ACTION_PAGE_SEARCH_ADVANCED;
             } else if (searchTypeId == SearchType.KEYWORDS) {
                 if (simpleSearchKeywords == null || simpleSearchKeywords == "") {
                     log.warn("simpleSearchKeywords not given");

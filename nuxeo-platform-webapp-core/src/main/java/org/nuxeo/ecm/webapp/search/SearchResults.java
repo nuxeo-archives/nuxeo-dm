@@ -66,6 +66,4 @@ public interface SearchResults extends SelectDataModelListener {
 
     boolean isSortable() throws ClientException;
 
-    String downloadCSV() throws ClientException;
-
 }

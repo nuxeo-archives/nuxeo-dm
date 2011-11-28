@@ -19,17 +19,9 @@
 
 package org.nuxeo.ecm.webapp.search;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Locale;
-
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
@@ -47,24 +39,18 @@ import org.jboss.seam.contexts.Context;
 import org.jboss.seam.contexts.Contexts;
 import org.nuxeo.ecm.core.api.ClientException;
 import org.nuxeo.ecm.core.api.DocumentModel;
-import org.nuxeo.ecm.core.api.DocumentModelList;
 import org.nuxeo.ecm.core.api.DocumentRef;
 import org.nuxeo.ecm.core.api.PagedDocumentsProvider;
 import org.nuxeo.ecm.core.api.SortInfo;
 import org.nuxeo.ecm.platform.actions.Action;
-import org.nuxeo.ecm.platform.types.FieldWidget;
 import org.nuxeo.ecm.platform.ui.web.model.SelectDataModel;
 import org.nuxeo.ecm.platform.ui.web.model.impl.SelectDataModelImpl;
 import org.nuxeo.ecm.platform.ui.web.model.impl.SelectDataModelRowEvent;
-import org.nuxeo.ecm.platform.ui.web.tag.fn.DocumentModelFunctions;
 import org.nuxeo.ecm.webapp.base.InputController;
 import org.nuxeo.ecm.webapp.clipboard.ClipboardActions;
 import org.nuxeo.ecm.webapp.documentsLists.DocumentsListsManager;
 import org.nuxeo.ecm.webapp.helpers.EventNames;
 import org.nuxeo.ecm.webapp.pagination.ResultsProvidersCache;
-import org.nuxeo.runtime.api.Framework;
-
-import au.com.bytecode.opencsv.CSVWriter;
 
 /**
  * @author <a href="mailto:glefter@nuxeo.com">George Lefter</a>
@@ -81,9 +67,6 @@ public class SearchResultsBean extends InputController implements
     private static final Log log = LogFactory.getLog(SearchResultsBean.class);
 
     public static final String SEARCH_DOCUMENT_LIST = "SEARCH_DOCUMENT_LIST";
-
-    @In(required = false, create = true)
-    protected transient SearchColumns searchColumns;
 
     @In(required = false, create = true)
     protected transient DocumentsListsManager documentsListsManager;
@@ -279,95 +262,6 @@ public class SearchResultsBean extends InputController implements
 
     public boolean isSortable() throws ClientException {
         return getProvider().isSortable();
-    }
-
-    public String downloadCSV() throws ClientException {
-        try {
-            if (newProviderName == null) {
-                throw new ClientException("providerName not set");
-            }
-            PagedDocumentsProvider provider = getProvider(newProviderName);
-            HttpServletResponse response = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
-            response.setContentType("text/csv");
-            response.setHeader("Content-Disposition",
-                    "attachment; filename=\"search_results.csv\"");
-
-            char separator = Framework.getProperty(
-                    "org.nuxeo.ecm.webapp.search.csv.separator", ",").charAt(0);
-            char quotechar = Framework.getProperty(
-                    "org.nuxeo.ecm.webapp.search.csv.quotechar", "\"").charAt(0);
-            String endOfLine = Framework.getProperty(
-                    "org.nuxeo.ecm.webapp.search.csv.endofline", "\n");
-            CSVWriter writer = new CSVWriter(response.getWriter(), separator,
-                    quotechar, endOfLine);
-
-            List<FieldWidget> widgetList = searchColumns.getResultColumns();
-            Locale locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
-            DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT, locale);
-
-            String[] columnNames = new String[widgetList.size()];
-            int i = 0;
-            for (FieldWidget widget : widgetList) {
-                String columnName = resourcesAccessor.getMessages().get(
-                        widget.getLabel());
-                columnNames[i++] = columnName;
-            }
-            writer.writeNext(columnNames);
-
-            // GR dump all pages... why not, but we need to restore current
-            // page
-            // number.
-            int currentPage = provider.getCurrentPageIndex();
-            int pageCount = provider.getNumberOfPages();
-            for (int page = 0; page < pageCount; page++) {
-                DocumentModelList docModelList = provider.getPage(page);
-                for (DocumentModel docModel : docModelList) {
-                    String[] columns = new String[widgetList.size()];
-                    i = 0;
-                    for (FieldWidget widget : widgetList) {
-                        String fieldSchema = widget.getSchemaName();
-                        String fieldName = widget.getFieldName();
-                        Object value;
-
-                        if (fieldSchema.equals("dublincore")
-                                && fieldName.equals("title")) {
-                            value = DocumentModelFunctions.titleOrId(docModel);
-                        } else if (fieldSchema.equals("ecm")
-                                && fieldName.equals("primaryType")) {
-                            value = docModel.getType();
-                        } else if (fieldSchema.equals("ecm")
-                                && fieldName.equals("currentLifeCycleState")) {
-                            value = docModel.getCurrentLifeCycleState();
-                        } else {
-                            value = docModel.getProperty(fieldSchema, fieldName);
-                        }
-
-                        String stringValue;
-                        if (value == null) {
-                            stringValue = "";
-                        } else if (value instanceof GregorianCalendar) {
-                            GregorianCalendar gValue = (GregorianCalendar) value;
-                            stringValue = df.format(gValue.getTime());
-                        } else if (value instanceof Object[]) {
-                            stringValue = StringUtils.join(
-                                    Arrays.asList((Object[]) value), ", ");
-                        } else {
-                            stringValue = String.valueOf(value);
-                        }
-                        columns[i++] = stringValue;
-                    }
-                    writer.writeNext(columns);
-                }
-            }
-            writer.close();
-            response.flushBuffer();
-            FacesContext.getCurrentInstance().responseComplete();
-            // restoring current page
-            provider.getPage(currentPage);
-        } catch (IOException e) {
-            throw new ClientException("download csv failed", e);
-        }
-        return null;
     }
 
 }

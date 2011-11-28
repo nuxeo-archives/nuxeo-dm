@@ -491,6 +491,53 @@
       </rows>
 
     </layout>
+
+    <layout name="test_layout_widget">
+      <templates>
+        <template mode="any">/layouts/layout_default_template.xhtml</template>
+      </templates>
+      <rows>
+        <row>
+          <widget>heading_with_mode</widget>
+        </row>
+        <row>
+          <widget>heading_without_mode</widget>
+        </row>
+        <row>
+          <widget>heading_with_template</widget>
+        </row>
+      </rows>
+      <widget name="heading_with_mode" type="layout">
+        <labels>
+          <label mode="any">heading_with_mode</label>
+        </labels>
+        <properties mode="any">
+          <property name="name">heading</property>
+          <property name="mode">edit</property>
+        </properties>
+      </widget>
+      <widget name="heading_without_mode" type="layout">
+        <labels>
+          <label mode="any">heading_without_mode</label>
+        </labels>
+        <properties mode="any">
+          <property name="name">heading</property>
+        </properties>
+      </widget>
+      <widget name="heading_with_template" type="layout">
+        <labels>
+          <label mode="any">heading_without_mode</label>
+        </labels>
+        <properties mode="any">
+          <property name="name">heading</property>
+          <property name="template">
+            /layouts/layout_div_template.xhtml
+          </property>
+        </properties>
+      </widget>
+
+    </layout>
+
   </extension>
 
 </component>
