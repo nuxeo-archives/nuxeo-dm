@@ -44,6 +44,7 @@ import org.nuxeo.ecm.core.api.DocumentModel;
 import org.nuxeo.ecm.core.api.DocumentRef;
 import org.nuxeo.ecm.core.api.IdRef;
 import org.nuxeo.ecm.core.api.LifeCycleConstants;
+import org.nuxeo.ecm.core.api.blobholder.BlobHolder;
 import org.nuxeo.ecm.platform.actions.Action;
 import org.nuxeo.ecm.platform.actions.ActionContext;
 import org.nuxeo.ecm.platform.ui.web.api.WebActions;
@@ -286,6 +287,21 @@ public class PopupHelper implements Serializable {
         if (documentModel.hasSchema("file")) {
             Blob blob = (Blob) documentModel.getProperty("file", "content");
             return blob != null;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isDocumentHasBlobs(DocumentModel documentModel)
+            throws ClientException {
+        BlobHolder bh = documentModel.getAdapter(BlobHolder.class);
+        if (bh != null) {
+            List<Blob> docBlobs = bh.getBlobs();
+            if (docBlobs != null && !docBlobs.isEmpty()) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
