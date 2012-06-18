@@ -35,7 +35,6 @@ import org.jboss.seam.annotations.Install;
 import org.jboss.seam.annotations.Name;
 import org.jboss.seam.annotations.Scope;
 import org.jboss.seam.contexts.Context;
-import org.jboss.seam.core.Events;
 import org.jboss.seam.international.LocaleSelector;
 import org.nuxeo.ecm.core.api.ClientException;
 import org.nuxeo.ecm.core.api.CoreSession;
@@ -146,8 +145,6 @@ public class StartupHelper implements Serializable {
         if (repositoryManager.getRepositories().size() > 1) {
             return SERVERS_VIEW;
         }
-
-
 
         // the Repository Location is initialized, skip the first screen
         return DOMAINS_VIEW;
