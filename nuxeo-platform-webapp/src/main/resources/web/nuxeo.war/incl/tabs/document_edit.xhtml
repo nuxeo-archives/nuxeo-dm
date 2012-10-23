@@ -24,13 +24,10 @@
       value="#{webActions.getActionsList('EDIT_DOCUMENT_FORM')}"
       cache="true">
       <c:forEach var="action" items="#{actions}">
-        <nxh:commandButton action="#{action.getLink()}"
-          immediate="#{action.immediate}"
-          onclick="#{action.confirm}"
-          id="edit_doc_#{action.id}"
-          value="#{messages[action.label]}"
-          styleClass="button"
-          accesskey="#{action.accessKey}" />
+        <ui:decorate template="/incl/action/generic_action_template.xhtml">
+          <ui:param name="idPrefix" value="edit_doc_" />
+          <ui:param name="useButton" value="true" />
+        </ui:decorate>
       </c:forEach>
     </nxu:set>
   </p>

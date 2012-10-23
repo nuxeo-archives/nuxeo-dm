@@ -1,14 +1,19 @@
 <div class="tabsBar" xmlns:h="http://java.sun.com/jsf/html"
   xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
   xmlns:nxu="http://nuxeo.org/nxweb/util"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:c="http://java.sun.com/jstl/core"
   xmlns:nxd="http://nuxeo.org/nxweb/document">
   <h:form>
-    <nxu:dataList layout="unorderedList" var="tab" value="#{tabsActionsList}"
-      itemStyleClass="#{nxu:test(webActions.currentTabId == tab.id, 'selected', '')}">
-      <nxd:restDocumentLink document="#{currentDocument}" tab="#{tab.id}"
-        accesskey="#{tab.accessKey}">
-        <h:outputText value="#{messages[tab.label]}" />
-      </nxd:restDocumentLink>
-    </nxu:dataList>
+    <ul>
+      <c:forEach var="action" items="#{tabsActionsList}">
+        <li class="#{nxu:test(webActions.currentTabId == action.id, 'selected', '')}">
+          <ui:decorate template="/incl/action/generic_action_template.xhtml">
+            <ui:param name="actionType" value="document_tab" />
+            <ui:param name="fieldOrValue" value="#{currentDocument}" />
+          </ui:decorate>
+        </li>
+      </c:forEach>
+    </ul>
   </h:form>
 </div>
