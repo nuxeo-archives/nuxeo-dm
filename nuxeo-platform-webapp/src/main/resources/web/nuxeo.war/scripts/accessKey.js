@@ -22,19 +22,19 @@ function showAccessKeys() {
         if (key !=null && key !="") {              
               var row = jQuery("<tr></tr>");
               var keySpan = jQuery("<span>" + key + "</span>");                 
-              keySpan.css({"background-color":"#666666", "color":"white","padding":"3px", "margin":"2px","border-radius" : "2px", "font-size" : "12px"});              
-
+              keySpan.css({"background-color":"#CCCCCC", "color":"black","padding":"6px", "margin":"2px","border-radius" : "2px", "font-size" : "12px", "font-weight" : "bold", "font-family": "monospace"});              
               var keyText = this.innerHTML;
-              if (this.tagName=="INPUT" && this.attr("type")=="button") {
-                 keyText = this.attr("value");
+              if (this.tagName=="INPUT" && (item.attr("type")=="button"  || item.attr("type")=="submit")) {
+                 keyText = item.attr("value");
               }
-              if (keyText) {
+              if (keyText && keyText!="" && keyText.indexOf("<!--")!=0 ) {
                 var td = jQuery("<td></td>");
-                td.css({"padding":"2px"});
+                td.css({"padding":"6px"});
                 td.append(keySpan);
                 row.append(td);
 
                 var descSpan = jQuery("<span></span>");
+                descSpan.css({"white-space":"nowrap"});
                 descSpan.append(keyText);
 
                 td = jQuery("<td></td>");
@@ -48,5 +48,27 @@ function showAccessKeys() {
     jQuery("body").append(container);
     showFancyBox("#accessKeyMenuPopup");
 }
-jQuery(document).bind('keydown', 'Shift+h', showAccessKeys);
+
+function bindShortCuts() {
+    // bind access keys to Ctrl+
+    jQuery("[accesskey]").each(function() {
+        var item = jQuery(this);
+        var key = item.attr("accesskey");
+        if (key !=null && key !="") {                            
+              var newKeyCode = "Ctrl+" + key;
+              var clickHandler = function(event) { event.preventDefault();item[0].click();};
+              // Document wide binding
+              jQuery(document).bind('keydown', newKeyCode, clickHandler);
+              // add bindings on all inputs
+              jQuery("INPUT,TEXTAREA,SELECT").bind('keydown', newKeyCode, clickHandler);
+         }
+    });
+    // bind help screen
+    jQuery(document).bind('keydown', 'Shift+h', showAccessKeys);
+}
+
+// run binding on document ready
+jQuery(document).ready(function() {
+     bindShortCuts()
+});
 
