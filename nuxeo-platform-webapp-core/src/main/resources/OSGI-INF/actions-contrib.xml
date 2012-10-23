@@ -533,9 +533,9 @@
       <category>EDIT_DOCUMENT_FORM</category>
     </action>
 
-    <action id="EDIT_CURRENT_DOCUMENT_AND_STAY" enabled="false"
+    <action id="EDIT_CURRENT_DOCUMENT_AND_STAY" enabled="true"
       link="#{documentActions.updateDocument(currentDocument, true)}"
-      order="10" label="command.save.and.stay">
+      order="10" label="command.save.and.stay" accessKey="s">
       <category>EDIT_DOCUMENT_FORM</category>
     </action>
 
