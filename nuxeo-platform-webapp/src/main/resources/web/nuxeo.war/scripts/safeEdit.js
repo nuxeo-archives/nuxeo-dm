@@ -4,7 +4,6 @@ function getInputValue(domInput) {
      if (domInput.type == 'text' || domInput.type == 'hidden') {
        return domInput.value;      
      } else if (domInput.type == 'radio' || domInput.type == 'checkbox') {
-       console.log("get value on radio " + domInput.checked, domInput);
        return domInput.checked;      
      } 
    }
@@ -28,7 +27,6 @@ function setInputValue(domInput, value) {
        domInput.value = value;      
      }
      else if (domInput.type == 'radio' ) {  
-       console.log("set check value " + value + " on ", domInput);     
        if (value==true || value =="true") {
           domInput.checked = true;
        } else {
