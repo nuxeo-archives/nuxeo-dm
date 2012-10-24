@@ -662,6 +662,16 @@
       </properties>
     </widget>
 
+    <widget name="toggleable_summary_note" type="toggleableLayoutWithForms">
+      <properties mode="view">
+        <property name="initialLayoutName">note_view</property>
+        <property name="toggledLayoutName">note_toggled</property>
+        <property name="useAjaxForm">true</property>
+        <property name="hideDefaultActions">true</property>
+        <property name="additionalActionsCategory">EDIT_DOCUMENT_TOGGLEABLE_FORM</property>
+      </properties>
+    </widget>
+
     <widget name="summary_panel_top" type="summary_current_document_custom_actions">
       <handlingLabels>true</handlingLabels>
       <labels>
@@ -702,6 +712,51 @@
       </labels>
       <properties widgetMode="any">
         <property name="category">SUMMARY_PANEL_BOTTOM</property>
+        <property name="subStyleClass">summaryActions</property>
+      </properties>
+    </widget>
+
+    <!-- duplicated widgets for new dashboard -->
+    <widget name="doc_dashboard_panel_top" type="summary_current_document_custom_actions">
+      <handlingLabels>true</handlingLabels>
+      <labels>
+        <label mode="any"></label>
+      </labels>
+      <properties widgetMode="any">
+        <property name="category">DOC_DASHBOARD_PANEL_TOP</property>
+        <property name="subStyleClass">summaryActions</property>
+      </properties>
+    </widget>
+
+    <widget name="doc_dashboard_panel_left" type="summary_current_document_custom_actions">
+      <handlingLabels>true</handlingLabels>
+      <labels>
+        <label mode="any"></label>
+      </labels>
+      <properties widgetMode="any">
+        <property name="category">DOC_DASHBOARD_PANEL_LEFT</property>
+        <property name="subStyleClass">summaryActions</property>
+      </properties>
+    </widget>
+
+    <widget name="doc_dashboard_panel_right" type="summary_current_document_custom_actions">
+      <handlingLabels>true</handlingLabels>
+      <labels>
+        <label mode="any"></label>
+      </labels>
+      <properties widgetMode="any">
+        <property name="category">DOC_DASHBOARD_PANEL_RIGHT</property>
+        <property name="subStyleClass">summaryActions</property>
+      </properties>
+    </widget>
+
+    <widget name="doc_dashboard_panel_bottom" type="summary_current_document_custom_actions">
+      <handlingLabels>true</handlingLabels>
+      <labels>
+        <label mode="any"></label>
+      </labels>
+      <properties widgetMode="any">
+        <property name="category">DOC_DASHBOARD_PANEL_BOTTOM</property>
         <property name="subStyleClass">summaryActions</property>
       </properties>
     </widget>
@@ -766,6 +821,60 @@
       </properties>
     </action>
 
+    <action id="doc_dashboard_note_text" type="widget" order="100">
+      <category>DOC_DASHBOARD_PANEL_LEFT</category>
+      <properties>
+        <property name="widgetName">toggleable_summary_note</property>
+        <property name="addForm">false</property>
+      </properties>
+      <filter-id>hasNote</filter-id>
+    </action>
+
+    <action id="doc_dashboard_current_document_files" type="widget"
+      order="200">
+      <category>DOC_DASHBOARD_PANEL_LEFT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_files</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
+    <action id="doc_dashboard_current_document_view" type="widget" order="300">
+      <category>DOC_DASHBOARD_PANEL_LEFT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_view</property>
+        <property name="addForm">true</property>
+      </properties>
+      <filter-id>notHasNote</filter-id>
+    </action>
+
+    <action id="doc_dashboard_current_document_comments" type="widget"
+      order="400">
+      <category>DOC_DASHBOARD_PANEL_LEFT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_comments</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
+    <action id="doc_dashboard_current_document_publications" type="widget"
+      order="500">
+      <category>DOC_DASHBOARD_PANEL_LEFT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_publications</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
+    <action id="doc_dashboard_current_document_single_tasks" type="widget"
+      order="600">
+      <category>DOC_DASHBOARD_PANEL_LEFT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_single_tasks</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
     <!-- end of default widgets on left panel -->
 
     <!-- default widgets on right panel -->
@@ -815,6 +924,60 @@
       </properties>
     </action>
 
+    <action id="doc_dashboard_current_document_description" type="widget"
+      order="100">
+      <category>DOC_DASHBOARD_PANEL_RIGHT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_description</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
+    <action id="doc_dashboard_current_document_states" type="widget"
+      order="200">
+      <category>DOC_DASHBOARD_PANEL_RIGHT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_states</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
+    <action id="doc_dashboard_current_document_contributors" type="widget"
+      order="300">
+      <category>DOC_DASHBOARD_PANEL_RIGHT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_contributors</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
+    <action id="doc_dashboard_current_document_custom_actions" type="widget"
+      order="400">
+      <category>DOC_DASHBOARD_PANEL_RIGHT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_custom_actions</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
+    <action id="doc_dashboard_current_document_tagging" type="widget"
+      order="500">
+      <category>DOC_DASHBOARD_PANEL_RIGHT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_tagging</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
+    <action id="doc_dashboard_current_document_relations" type="widget"
+      order="600">
+      <category>DOC_DASHBOARD_PANEL_RIGHT</category>
+      <properties>
+        <property name="widgetName">summary_current_document_relations</property>
+        <property name="addForm">true</property>
+      </properties>
+    </action>
+
     <!-- end of default widgets on right panel -->
 
   </extension>
@@ -852,6 +1015,69 @@
             <property name="nxl_gridStyleClass_0">gridStyle12</property>
           </properties>
           <widget>summary_panel_bottom</widget>
+        </row>
+      </rows>
+    </layout>
+
+    <!-- similar dashboard, but action widgets need to add a form -->
+    <layout name="grid_doc_dashboard_layout">
+      <templates>
+        <template mode="any">
+          /layouts/layout_grid_template.xhtml
+        </template>
+      </templates>
+      <rows>
+        <row>
+          <properties mode="any">
+            <property name="nxl_gridStyleClass_0">gridStyle12</property>
+          </properties>
+          <widget>doc_dashboard_panel_top</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_gridStyleClass_0">gridStyle7</property>
+            <property name="nxl_gridStyleClass_1">gridStyle5</property>
+          </properties>
+          <widget>doc_dashboard_panel_left</widget>
+          <widget>doc_dashboard_panel_right</widget>
+        </row>
+        <row>
+          <properties mode="any">
+            <property name="nxl_gridStyleClass_0">gridStyle12</property>
+          </properties>
+          <widget>doc_dashboard_panel_bottom</widget>
+        </row>
+      </rows>
+    </layout>
+
+    <layout name="note_view">
+      <templates>
+        <template mode="any">
+          /layouts/layout_default_template.xhtml
+        </template>
+      </templates>
+      <properties mode="any">
+        <property name="widgetsDisplay">no_label</property>
+      </properties>
+      <rows>
+        <row>
+          <widget>summary_note_text</widget>
+        </row>
+      </rows>
+    </layout>
+
+    <layout name="note_toggled">
+      <templates>
+        <template mode="any">
+          /layouts/layout_default_template.xhtml
+        </template>
+      </templates>
+      <properties mode="any">
+        <property name="widgetsDisplay">no_label</property>
+      </properties>
+      <rows>
+        <row>
+          <widget>note</widget>
         </row>
       </rows>
     </layout>

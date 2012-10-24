@@ -108,6 +108,14 @@
       label="action.view.summary" icon="/icons/file.gif" accessKey="v">
       <category>VIEW_ACTION_LIST</category>
       <filter-id>view</filter-id>
+      <filter-id>notHasNote</filter-id>
+    </action>
+
+    <action id="TAB_DOC_DASHBOARD" link="/incl/tabs/document_dashboard.xhtml" order="0"
+      label="action.view.summary" icon="/icons/file.gif" accessKey="v">
+      <category>VIEW_ACTION_LIST</category>
+      <filter-id>view</filter-id>
+      <filter-id>hasNote</filter-id>
     </action>
 
     <action id="TAB_CONTENT" link="/incl/tabs/document_content.xhtml"
@@ -137,7 +145,7 @@
     </action>
 
     <action id="print" link="#{restHelper.doPrint(themeActions.defaultTheme)}"
-      order="100" label="label.print" icon="/icons/printer.gif"  accesskey="p">
+      order="100" label="label.print" icon="/icons/printer.gif" accesskey="p">
       <category>DOCUMENT_UPPER_ACTION_BLANK_TARGET</category>
     </action>
 
@@ -149,7 +157,8 @@
     </action>
 
     <action id="TAB_WORKSPACE_EDIT" link="/incl/tabs/document_edit.xhtml"
-      order="22" label="action.view.modification" icon="/icons/file.gif" accessKey="e">
+      order="22" label="action.view.modification" icon="/icons/file.gif"
+      accessKey="e">
       <category>VIEW_ACTION_LIST</category>
       <filter-id>workspace_edit</filter-id>
       <filter-id>mutable_document</filter-id>
@@ -533,9 +542,14 @@
       <category>EDIT_DOCUMENT_FORM</category>
     </action>
 
+    <action id="EDIT_CURRENT_DOCUMENT" link="#{documentActions.updateCurrentDocument}"
+      order="0" label="command.save" accessKey="s">
+      <category>EDIT_DOCUMENT_TOGGLEABLE_FORM</category>
+    </action>
+
     <action id="EDIT_CURRENT_DOCUMENT_AND_STAY" enabled="true"
-      link="#{documentActions.updateDocument(currentDocument, true)}"
-      order="10" label="command.save.and.stay" accessKey="s">
+      link="#{documentActions.updateDocument(currentDocument, true)}" order="10"
+      label="command.save.and.stay" accessKey="s">
       <category>EDIT_DOCUMENT_FORM</category>
     </action>
 
