@@ -13,6 +13,11 @@
     });
   </script>
 
+  <ui:include src="/incl/safeEdit.xhtml">
+    <ui:param name="safeEdit_mode" value="edit" />
+    <ui:param name="safeEdit_form" value="document_edit" />
+  </ui:include>
+
   <nxl:documentLayout mode="edit" value="#{currentDocument}" />
 
   <ui:include src="/incl/document_versioning.xhtml" />
