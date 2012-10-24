@@ -3,6 +3,7 @@
   xmlns:c="http://java.sun.com/jstl/core"
   xmlns:nxh="http://nuxeo.org/nxweb/html"
   xmlns:nxu="http://nuxeo.org/nxweb/util"
+  xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
   xmlns:nxl="http://nuxeo.org/nxforms/layout">
 
 <h:form enctype="multipart/form-data" id="document_edit">
@@ -32,6 +33,10 @@
         <ui:decorate template="/incl/action/generic_action_template.xhtml">
           <ui:param name="idPrefix" value="edit_doc_" />
           <ui:param name="useButton" value="true" />
+          <ui:define name="inside_action">
+            <a4j:support event="onclick"
+              onsubmit="alert('yo'); return true;" />
+          </ui:define>
         </ui:decorate>
       </c:forEach>
     </nxu:set>
