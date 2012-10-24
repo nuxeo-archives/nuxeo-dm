@@ -45,7 +45,7 @@
               <ui:param name="useButton" value="true" />
               <ui:define name="inside_action">
                 <a4j:support event="onclick"
-                  onsubmit="alert('yo'); return true;" />
+                  onsubmit="dropSafeEdit(); return true;" />
               </ui:define>
             </ui:decorate>
           </c:forEach>

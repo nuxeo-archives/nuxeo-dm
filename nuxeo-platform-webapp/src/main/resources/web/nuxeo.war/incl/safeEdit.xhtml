@@ -29,6 +29,7 @@
 </span>
 
 <script>
+    var dropSafeEdit=null;
     jQuery(document).ready(function() {
        // define  the formKey
        var formKey ='#{currentDocument.id}';
@@ -36,7 +37,9 @@
        formKey ='create-' + formKey + '-#{changeableDocument.type}';
        </c:if>
        initSafeEditOnForm('#{safeEdit_form}', formKey);
+       dropSafeEdit = function() { cleanupSavedData(formKey) };
     });
+
 </script>
 
 </div>

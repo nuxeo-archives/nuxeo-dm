@@ -101,7 +101,7 @@ function saveForm(key, formSelector, savePeriod, saveCB) {
 }
 
 function cleanupSavedData(key) {
-   //console.log("Cleanup custom storage");
+   //console.log("Cleanup custom storage");   
    localStorage.removeItem(key);
 }
 
