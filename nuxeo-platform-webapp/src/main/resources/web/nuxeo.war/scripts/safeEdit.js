@@ -4,6 +4,7 @@ function getInputValue(domInput) {
      if (domInput.type == 'text' || domInput.type == 'hidden') {
        return domInput.value;      
      } else if (domInput.type == 'radio' || domInput.type == 'checkbox') {
+       console.log("get value on radio " + domInput.checked, domInput);
        return domInput.checked;      
      } 
    }
@@ -26,8 +27,13 @@ function setInputValue(domInput, value) {
      if ( domInput.type == 'text' || domInput.type == 'hidden') {
        domInput.value = value;      
      }
-     else if (domInput.type == 'radio' ) {      
-       domInput.checked = value;
+     else if (domInput.type == 'radio' ) {  
+       console.log("set check value " + value + " on ", domInput);     
+       if (value==true || value =="true") {
+          domInput.checked = true;
+       } else {
+          jQuery(domInput).removeAttr("checked");
+       }
      } else if ( domInput.type == 'checkbox' ) {
        if (value==true) {
           domInput.checked = true;
@@ -36,7 +42,7 @@ function setInputValue(domInput, value) {
        }
      }
    } else if (domInput.tagName == "SELECT" || domInput.tagName == "TEXTAREA" ) {
-     jQuery(domInput).val(value);      
+     jQuery(domInput).val(value).change();      
    } else if (domInput.tagName == "IFRAME" ) {
      return jQuery(domInput).contents().find("body").html(value);
    }
@@ -63,14 +69,22 @@ function getFormItems(formSelector) {
   return jQuery(formSelector).find("input,select,textarea,td.mceIframeContainer>iframe");
 }
 
-function saveForm(key, formSelector, savePeriod, saveCB) {
+function collectFormData(formSelector) {
    var data={};
    getFormItems(formSelector).each( function() {
       if (!mustSkipField(this)) {
-         data[this.name]=getInputValue(this);
+         var key = this.id;
+         if (!key) {
+           key = this.name;
+         }
+         data[key]=getInputValue(this);
       }
    });
-   //console.log("savingForm", data);
+   return data;
+}
+
+function saveForm(key, formSelector, savePeriod, saveCB) {
+   var data=collectFormData(formSelector);
    var dataToStore = JSON.stringify(data);
    if (dataToStore == lastSavedJSONData) {
      //console.log("skip save ... no change");     
@@ -97,6 +111,13 @@ function restoreDraftFormData(key, formSelector, loadCB, savePeriod, saveCB) {
    var dataStr=localStorage.getItem(key);
    if (dataStr) { // there is some saved data 
 
+     var currentData=JSON.stringify(collectFormData(formSelector));
+     //console.log("restore check", currentData, dataStr);
+     if (currentData==dataStr) {
+       // don't propose to restore if there is nothing new !
+       return;
+     }
+
      // create cleanup callback
      jQuery(window).unload(function() { 
        // XXX
@@ -109,8 +130,12 @@ function restoreDraftFormData(key, formSelector, loadCB, savePeriod, saveCB) {
          // restore !
          var data = JSON.parse(dataStr);
          getFormItems(formSelector).each( function() {
-         if (!mustSkipField(this)) {          
-             setInputValue(this,data[this.name]);
+         if (!mustSkipField(this)) {   
+           var k = this.id;
+           if (!k) {
+             k = this.name;
+           }       
+           setInputValue(this,data[k]);
          }
          });     
        } else {
