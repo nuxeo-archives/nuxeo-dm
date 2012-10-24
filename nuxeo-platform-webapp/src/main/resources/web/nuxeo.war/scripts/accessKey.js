@@ -56,11 +56,13 @@ function bindShortCuts() {
         var key = item.attr("accesskey");
         if (key !=null && key !="") {                            
               var newKeyCode = "Ctrl+" + key;
-              var clickHandler = function(event) { event.preventDefault();item[0].click();};
+              var clickHandler = function(event) {event.preventDefault();item[0].click();return false;};
               // Document wide binding
               jQuery(document).bind('keydown', newKeyCode, clickHandler);
               // add bindings on all inputs
               jQuery("INPUT,TEXTAREA,SELECT").bind('keydown', newKeyCode, clickHandler);
+              var mceFrames = jQuery(".mceIframeContainer > IFRAME").contents().find("body");              
+              mceFrames.bind('keydown', newKeyCode, clickHandler);
          }
     });
     // bind help screen
@@ -69,6 +71,8 @@ function bindShortCuts() {
 
 // run binding on document ready
 jQuery(document).ready(function() {
-     bindShortCuts()
+     // wait for all other onready event to do their work before we tweak the binding
+     // this is needed for TinyMce
+     window.setTimeout(bindShortCuts, 1000);
 });
 
