@@ -239,7 +239,8 @@ body {
   text-align: center }
 
 .errorMessage {
-  color: #f40000 }
+  color: #f40000;
+  font-size: .9em }
 
 .welcome {
   background: #fff;
