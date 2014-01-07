@@ -36,7 +36,7 @@ import org.nuxeo.ecm.platform.ui.web.api.NavigationContext;
 /**
  * @author <a href="mailto:troger@nuxeo.com">Thomas Roger</a>
  */
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 @Name("noteActions")
 public class NoteActions implements Serializable {
 

@@ -58,7 +58,7 @@ import org.nuxeo.ecm.webapp.base.InputController;
  * @author <a href="mailto:troger@nuxeo.com">Thomas Roger</a>
  */
 @Name("editorImageActions")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 public class EditorImageActionsBean extends InputController implements
         EditorImageActions, Serializable {
 

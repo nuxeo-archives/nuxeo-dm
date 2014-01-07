@@ -40,7 +40,7 @@ import org.nuxeo.ecm.webapp.base.InputController;
  * @author <a href="mailto:troger@nuxeo.com">Thomas Roger</a>
  */
 @Name("editorLinkActions")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 public class EditorLinkActionsBean extends InputController implements
         EditorLinkActions, Serializable {
 

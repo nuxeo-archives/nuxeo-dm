@@ -35,7 +35,7 @@ import org.nuxeo.ecm.platform.ui.web.api.NavigationContext;
 import org.nuxeo.ecm.webapp.documentsLists.DocumentsListsManager;
 
 @Name("massSecurityModifierActions")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 public class MassSecurityModifierActions implements Serializable {
 
     private static final long serialVersionUID = 4978984433628773791L;

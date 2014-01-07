@@ -69,7 +69,7 @@ import org.nuxeo.ecm.webapp.helpers.ResourcesAccessor;
  * @author Thierry Martins
  */
 @Name("versionedActions")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 @Install(precedence = FRAMEWORK)
 public class VersionedActionsBean implements VersionedActions, Serializable {
 

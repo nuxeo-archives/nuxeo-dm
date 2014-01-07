@@ -44,7 +44,7 @@ import org.nuxeo.ecm.core.api.IdRef;
 import org.nuxeo.ecm.platform.ui.web.api.NavigationContext;
 
 @Name("logoHelper")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 public class LogoHelper implements Serializable {
 
     private static final long serialVersionUID = 876540986876L;

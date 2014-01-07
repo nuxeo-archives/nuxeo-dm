@@ -49,7 +49,7 @@ import org.nuxeo.ecm.webapp.helpers.ResourcesAccessor;
  * @author <a href="mailto:troger@nuxeo.com">Thomas Roger</a>
  */
 @Name("orderableDocumentActions")
-@Scope(ScopeType.CONVERSATION)
+@Scope(ScopeType.EVENT)
 public class OrderableDocumentActions implements Serializable {
 
     private static final Log log = LogFactory.getLog(OrderableDocumentActions.class);

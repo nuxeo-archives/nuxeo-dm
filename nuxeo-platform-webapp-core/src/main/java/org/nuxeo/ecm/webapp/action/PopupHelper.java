@@ -52,7 +52,7 @@ import org.nuxeo.ecm.platform.ui.web.tag.fn.DocumentModelFunctions;
 import org.nuxeo.ecm.webapp.edit.lock.LockActions;
 
 @Name("popupHelper")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 public class PopupHelper implements Serializable {
 
     private static final long serialVersionUID = 1L;

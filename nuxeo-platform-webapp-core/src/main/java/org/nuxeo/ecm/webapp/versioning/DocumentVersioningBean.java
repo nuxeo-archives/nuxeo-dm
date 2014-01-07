@@ -67,7 +67,7 @@ import org.nuxeo.ecm.webapp.helpers.ResourcesAccessor;
  * @author Dragos Mihalache
  */
 @Name("documentVersioning")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 @Install(precedence = FRAMEWORK)
 public class DocumentVersioningBean implements DocumentVersioning, Serializable {
 

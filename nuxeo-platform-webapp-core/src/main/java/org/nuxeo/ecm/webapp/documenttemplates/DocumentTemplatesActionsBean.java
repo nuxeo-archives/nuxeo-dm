@@ -61,7 +61,7 @@ import org.nuxeo.runtime.api.Framework;
  * session.
  */
 @Name("documentTemplatesActions")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 public class DocumentTemplatesActionsBean extends InputController implements
         DocumentTemplatesActions, Serializable {
 

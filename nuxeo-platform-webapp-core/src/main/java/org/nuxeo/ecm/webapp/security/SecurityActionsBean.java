@@ -75,7 +75,7 @@ import org.nuxeo.runtime.api.Framework;
  * @author Razvan Caraghin
  */
 @Name("securityActions")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 public class SecurityActionsBean extends InputController implements
         SecurityActions, Serializable {
 

@@ -19,7 +19,6 @@
 
 package org.nuxeo.ecm.webapp.context;
 
-import static org.jboss.seam.ScopeType.CONVERSATION;
 import static org.jboss.seam.ScopeType.EVENT;
 import static org.jboss.seam.annotations.Install.FRAMEWORK;
 import static org.nuxeo.ecm.webapp.helpers.EventNames.NAVIGATE_TO_DOCUMENT;
@@ -83,7 +82,7 @@ import org.nuxeo.runtime.api.Framework;
  * Implementation for the navigationContext component available on the session.
  */
 @Name("navigationContext")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.CONVERSATION)
 @Install(precedence = FRAMEWORK)
 public class NavigationContextBean implements NavigationContext, Serializable {
 

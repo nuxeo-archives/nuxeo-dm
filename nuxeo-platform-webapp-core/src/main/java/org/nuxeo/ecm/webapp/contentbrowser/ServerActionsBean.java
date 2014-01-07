@@ -45,7 +45,7 @@ import org.nuxeo.runtime.api.Framework;
  * @author Florent Guillaume
  */
 @Name("serverActions")
-@Scope(CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.EVENT)
 public class ServerActionsBean implements ServerActions, Serializable {
 
     private static final long serialVersionUID = 1L;
