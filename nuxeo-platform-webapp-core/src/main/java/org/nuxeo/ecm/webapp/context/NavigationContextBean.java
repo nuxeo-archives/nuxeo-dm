@@ -82,7 +82,7 @@ import org.nuxeo.runtime.api.Framework;
  * Implementation for the navigationContext component available on the session.
  */
 @Name("navigationContext")
-@Scope(org.jboss.seam.ScopeType.CONVERSATION)
+@Scope(org.jboss.seam.ScopeType.PAGE)
 @Install(precedence = FRAMEWORK)
 public class NavigationContextBean implements NavigationContext, Serializable {
 
